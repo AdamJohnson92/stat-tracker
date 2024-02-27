@@ -5,8 +5,8 @@ const players = [
         games: [
             {
                 eliminations: 3,
-                assists: 2,
-                accuracy: 40
+                assists: 3,
+                accuracy: 30
             }
         ]
     },
@@ -15,8 +15,8 @@ const players = [
         gamerTag: 'annathekate14',
         games: [
             {
-                eliminations: 3,
-                assists: 2,
+                eliminations: 4,
+                assists: 1,
                 accuracy: 40
             }
         ]
@@ -26,7 +26,7 @@ const players = [
         gamerTag: 'jama_gram11',
         games:[
             {
-                eliminations: 3,
+                eliminations: 5,
                 assists: 2,
                 accuracy: 40
             }
@@ -37,9 +37,9 @@ const players = [
         gamerTag: 'Mr._Happy',
         games: [
             {
-                eliminations: 3,
-                assists: 2,
-                accuracy: 40
+                eliminations: 6,
+                assists: 4,
+                accuracy: 50
             }
         ]
     }, 
@@ -49,7 +49,7 @@ const players = [
         games: [
             {
                 eliminations: 3,
-                assists: 2,
+                assists: 3,
                 accuracy: 40
             }
         ]
@@ -59,8 +59,8 @@ const players = [
         gamerTag: 'JPDiddle',
         games: [
             {
-                eliminations: 3,
-                assists: 2,
+                eliminations: 5,
+                assists: 4,
                 accuracy: 40
             }
         ]

@@ -1,6 +1,8 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Header from './Header';
 import HomePage from './pages/HomePage';
+import PlayerPage from './pages/PlayerPage';
 
 
 function App() {
@@ -8,12 +10,14 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <header className="App-header">
-          <h1>Stat Tracker</h1>
-          <Routes>
+         <Header />
+          
+        </header>
+        <Routes>
             <Route path='/' element={<HomePage />}/>
+            <Route path='/:playerId' element={<PlayerPage />}/>
           </Routes>
 
-        </header>
       </div>
     </BrowserRouter>
 
