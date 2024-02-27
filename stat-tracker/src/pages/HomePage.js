@@ -1,4 +1,5 @@
 import players from "../seed-data"
+import ajo from '../avatars/A-Jo.PNG'
 import { Link } from "react-router-dom"
 
 const HomePage = () => {
@@ -7,8 +8,9 @@ const HomePage = () => {
         <div className="player-list">
 
             {players.map(player => (
-                <Link className="player-block" to={`/${player.gamerTag}`}>
+                <Link key={player.gamerTag}className="player-block" to={`/${player.gamerTag}`}>
                     <h3>{player.gamerTag}</h3>
+                    <img src={player.avatarSrc} className="avatar-img"></img>
                     <p>a.k.a. {player.name}</p>
                 </Link>
                

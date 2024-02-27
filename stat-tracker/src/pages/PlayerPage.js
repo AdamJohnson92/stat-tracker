@@ -11,7 +11,7 @@ const PlayerPage = () => {
     return (
     <>
         <h2>{player.gamerTag}</h2>
-        <h4></h4>
+        <img src={player.avatarSrc} className="avatar-img"/>
         <div>
             <p> Eliminations: {player.games[0].eliminations}</p>
             <p> Assists: {player.games[0].assists}</p>

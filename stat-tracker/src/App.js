@@ -9,15 +9,14 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <header className="App-header">
-         <Header />
-          
-        </header>
+        <header className="App-header"> <Header /></header>
         <Routes>
             <Route path='/' element={<HomePage />}/>
             <Route path='/:playerId' element={<PlayerPage />}/>
           </Routes>
-
+        <footer>
+          <p className='footer'>Macadamia Inc. &copy; 2024</p>
+        </footer>
       </div>
     </BrowserRouter>
 
