@@ -8,7 +8,7 @@ const StatsFormPage = () => {
     const [assists, setAssists] = useState('')
     const [accuracy, setAccuracy] = useState('')
 
-    function addStats (event) {
+    function addStats(event) {
 
         event.preventDefault()
 
@@ -18,14 +18,14 @@ const StatsFormPage = () => {
         console.log(`accuracy: ${accuracy}%`)
 
         for (let i = 0; i < players.length; i++) {
-            const player=players[i]
+            const player = players[i]
             if (player.gamerTag === gamer) {
                 player.games.push(
                     {
                         id: player.games.length + 1,
-                        eliminations: eliminations,
-                        assists: assists,
-                        accuracy: accuracy
+                        eliminations: Number(eliminations),
+                        assists: Number(assists),
+                        accuracy: Number(accuracy)
                     }
                 )
             }
@@ -33,7 +33,7 @@ const StatsFormPage = () => {
 
         console.log(players)
 
-        setGamer('Select a Gamer') 
+        setGamer('Select a Gamer')
         setEliminations('')
         setAssists('')
         setAccuracy('')
@@ -45,8 +45,8 @@ const StatsFormPage = () => {
             <h2 className="padding-top">New Stats Form</h2>
             <form className="padding-top column container">
                 <div className="form-group">
-                    <select className="col-6" placeholder='Select a Gamer' value={gamer} onChange={(e)=> setGamer(e.target.value)}>
-                        <option style={{color:'grey'}}>Select a Gamer</option>
+                    <select className="col-6" placeholder='Select a Gamer' value={gamer} onChange={(e) => setGamer(e.target.value)}>
+                        <option style={{ color: 'grey' }}>Select a Gamer</option>
                         {players.map(player => (
                             <option key={player.gamerTag} className="player-block" to={`/${player.gamerTag}`}>
                                 {player.gamerTag}
@@ -57,6 +57,7 @@ const StatsFormPage = () => {
                 <div className="form-group">
                     <label>
                         <input
+                            type='number'
                             placeholder="Eliminations"
                             value={eliminations}
                             onChange={e => setEliminations(e.target.value)}>
@@ -65,7 +66,8 @@ const StatsFormPage = () => {
                 </div>
                 <div className="form-group">
                     <label>
-                    <input
+                        <input
+                            type='number'
                             placeholder="Assists"
                             value={assists}
                             onChange={e => setAssists(e.target.value)}>
@@ -74,7 +76,8 @@ const StatsFormPage = () => {
                 </div>
                 <div className="form-group">
                     <label>
-                    <input
+                        <input
+                            type='number'
                             placeholder="Accuracy"
                             value={accuracy}
                             onChange={e => setAccuracy(e.target.value)}>
