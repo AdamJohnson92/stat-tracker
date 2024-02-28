@@ -10,13 +10,20 @@ const PlayerPage = () => {
 
     return (
     <>
-        <h2>{player.gamerTag}</h2>
+        <h2 className="padding-top">{player.gamerTag}</h2>
         <img src={player.avatarSrc} className="avatar-img"/>
         <div>
-            <p> Eliminations: {player.games[0].eliminations}</p>
-            <p> Assists: {player.games[0].assists}</p>
-            <p> Accuracy: {player.games[0].accuracy}%</p>
-            
+            <h3 className="padding-top">Most Recent Game</h3>
+            <p> Eliminations: {player.games[player.games.length - 1].eliminations}</p>
+            <p> Assists: {player.games[player.games.length - 1].assists}</p>
+            <p> Accuracy: {player.games[player.games.length - 1].accuracy}%</p>
+        </div>
+
+        <div>
+            <h3 className="padding-top">Lifetime Averages</h3>
+            <p> Eliminations: {player.games[player.games.length - 1].eliminations}</p>
+            <p> Assists: {player.games[player.games.length - 1].assists}</p>
+            <p> Accuracy: {player.games[player.games.length - 1].accuracy}%</p>
         </div>
     </>
 

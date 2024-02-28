@@ -21,7 +21,6 @@ code {
 
 .App {
   width: 100%;
-  text-align: center;
   position: relative;
   min-height: 100vh;
   background-color: #2c66d8;
@@ -68,12 +67,18 @@ nav {
 }
 
 .body-content {
+  display: flex;
+  flex-direction: column;
   padding-bottom: 4.5rem;
+  justify-content: center;
+  width: 100%;
 }
 
 .player-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .btn {
@@ -85,7 +90,8 @@ nav {
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  min-width: 200px;
+  width: 300px;
+
 }
 
 .avatar-img {
