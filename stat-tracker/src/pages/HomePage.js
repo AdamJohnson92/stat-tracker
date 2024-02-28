@@ -1,5 +1,4 @@
 import players from "../seed-data"
-import ajo from '../avatars/A-Jo.PNG'
 import { Link } from "react-router-dom"
 
 const HomePage = () => {

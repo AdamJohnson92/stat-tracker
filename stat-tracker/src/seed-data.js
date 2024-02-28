@@ -12,7 +12,7 @@ const players = [
         avatarSrc: ajoImg,
         games: [
             {
-                gameId: 1,
+                id: 1,
                 eliminations: 3,
                 assists: 3,
                 accuracy: 30
@@ -25,7 +25,7 @@ const players = [
         avatarSrc: annathekate14Img,
         games: [
             {
-                gameId: 1,
+                id: 1,
                 eliminations: 4,
                 assists: 1,
                 accuracy: 40
@@ -38,7 +38,7 @@ const players = [
         avatarSrc: jamagram11Img,
         games:[
             {
-                gameId: 1,
+                id: 1,
                 eliminations: 5,
                 assists: 2,
                 accuracy: 40
@@ -51,7 +51,7 @@ const players = [
         avatarSrc: mrHappyImg,
         games: [
             {
-                gameId: 1,
+                id: 1,
                 eliminations: 6,
                 assists: 4,
                 accuracy: 50
@@ -64,7 +64,7 @@ const players = [
         avatarSrc: fishbone22Img,
         games: [
             {
-                gameId: 1,
+                id: 1,
                 eliminations: 3,
                 assists: 3,
                 accuracy: 40
