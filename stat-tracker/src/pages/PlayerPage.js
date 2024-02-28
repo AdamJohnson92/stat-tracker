@@ -9,7 +9,7 @@ const PlayerPage = () => {
     const player = players.find(player => player.gamerTag === playerId);
 
 
- 
+
 
     const numOfGames = player.games.length
     const averages = () => {
@@ -35,27 +35,32 @@ const PlayerPage = () => {
     const eAverage = averages().elimAverage
     const assAverage = averages().assistAverage
     const accAverage = averages().accuracyAverage
-   
+
 
     return (
-        <>
+        <div>
             <h2 className="padding-top">{player.gamerTag}</h2>
             <img src={player.avatarSrc} className="avatar-img" />
             <p>Total Games: {player.games.length}</p>
-            <div>
-                <h3 className="padding-top">Most Recent Game</h3>
-                <p> Eliminations: {player.games[player.games.length - 1].eliminations}</p>
-                <p> Assists: {player.games[player.games.length - 1].assists}</p>
-                <p> Accuracy: {player.games[player.games.length - 1].accuracy}%</p>
+            <div className="body-content container">
+
+                <div>
+                    <h3 className="padding-top">Most Recent Game</h3>
+                    <p> Eliminations: {player.games[player.games.length - 1].eliminations}</p>
+                    <p> Assists: {player.games[player.games.length - 1].assists}</p>
+                    <p> Accuracy: {player.games[player.games.length - 1].accuracy}%</p>
+                </div>
+
+                <div className="padding-bottom">
+                    <h3 className="padding-top">Lifetime Averages</h3>
+                    <p> Eliminations: {eAverage}</p>
+                    <p> Assists: {assAverage}</p>
+                    <p> Accuracy: {accAverage}%</p>
+                </div>
+
             </div>
 
-            <div>
-                <h3 className="padding-top">Lifetime Averages</h3>
-                <p> Eliminations: {eAverage}</p>
-                <p> Assists: {assAverage}</p>
-                <p> Accuracy: {accAverage}%</p>
-            </div>
-        </>
+        </div>
 
     )
 }
