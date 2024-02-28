@@ -8,12 +8,12 @@ const Header = () => {
                 </Link>
             </h1>
 
-        <nav>
+        <nav className="container">
             <Link to={'/'}>
-                <h4 className="nav-item">Home</h4>
+                <h5 className="nav-item">Home</h5>
             </Link>
             <Link to={'/stats-form'} >
-                <h4 className="nav-item">New Stats</h4>
+                <h5 className="nav-item">New Stats</h5>
             </Link>
         </nav>
         </>

@@ -48,6 +48,17 @@ h1 {
   font-size: 60px;
 }
 
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
+}
+
+/* .nav-item  {
+  padding-left:30px;
+  padding-right: 30px;
+} */
+
 .padding-top {
   padding-top: 30px;
 }
@@ -84,6 +95,10 @@ h1 {
 a:-webkit-any-link {
   text-decoration: none;
   color: white;
+}
+
+.form-group {
+  margin: 10px;
 }
 
 footer {
