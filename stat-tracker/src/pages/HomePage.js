@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const HomePage = () => {
     return (
         <div className="body-content">
-            <h2>These Goons</h2>
+            <h2 className="padding-top">These Goons</h2>
             <div className="player-list body-content">
 
                 {players.map(player => (

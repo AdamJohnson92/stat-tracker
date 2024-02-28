@@ -4,16 +4,16 @@ const Header = () => {
         <>
             <h1>
                 <Link to={'/'}> 
-                <h1>Stats Tracker</h1>
+                <h1 className="padding-top">Stats Tracker</h1>
                 </Link>
             </h1>
 
         <nav>
             <Link to={'/'}>
-                <p>Home</p>
+                <h4 className="nav-item">Home</h4>
             </Link>
             <Link to={'/stats-form'} >
-                <p>New Stats</p>
+                <h4 className="nav-item">New Stats</h4>
             </Link>
         </nav>
         </>
