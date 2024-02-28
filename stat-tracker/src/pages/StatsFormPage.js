@@ -16,6 +16,27 @@ const StatsFormPage = () => {
         console.log(`elims: ${eliminations}`)
         console.log(`assists: ${assists}`)
         console.log(`accuracy: ${accuracy}%`)
+
+        for (let i = 0; i < players.length; i++) {
+            const player=players[i]
+            if (player.gamerTag === gamer) {
+                player.games.push(
+                    {
+                        id: player.games.length + 1,
+                        eliminations: eliminations,
+                        assists: assists,
+                        accuracy: accuracy
+                    }
+                )
+            }
+        }
+
+        console.log(players)
+
+        setGamer('Select a Gamer') 
+        setEliminations('')
+        setAssists('')
+        setAccuracy('')
     }
 
 
