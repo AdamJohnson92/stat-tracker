@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import PlayerPage from './pages/PlayerPage';
 import StatsFormPage from './pages/StatsFormPage';
 import NotFoundPage from './pages/NotFoundPage';
+import PlayerAllGamesPage from './pages/PlayerAllGamesPage';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route path='/' element={<HomePage />}/>
             <Route path='/:playerId' element={<PlayerPage />}/>
             <Route path='/stats-form' element={<StatsFormPage />}  />
+            <Route path='/:playerId/all-games' element={<PlayerAllGamesPage />}/>
             <Route path='*' element={<NotFoundPage />}/>
           </Routes>
         <footer>
