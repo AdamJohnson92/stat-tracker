@@ -1,5 +1,6 @@
 import players from "../seed-data"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 const PlayerPage = () => {
@@ -38,7 +39,7 @@ const PlayerPage = () => {
 
 
     return (
-        <div>
+        <div className="body-content container">
             <h2 className="padding-top">{player.gamerTag}</h2>
             <img src={player.avatarSrc} className="avatar-img" />
             <p>Total Games: {player.games.length}</p>
@@ -56,6 +57,12 @@ const PlayerPage = () => {
                     <p> Eliminations: {eAverage}</p>
                     <p> Assists: {assAverage}</p>
                     <p> Accuracy: {accAverage}%</p>
+                </div>
+
+                <div className="container">
+                    <Link to={`/${player.gamerTag}/all-games`}>
+                        <button className="btn">View All of {player.gamerTag}'s Games</button>
+                    </Link>
                 </div>
 
             </div>

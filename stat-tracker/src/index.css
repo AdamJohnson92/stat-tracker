@@ -20,6 +20,9 @@ code {
 }
 
 .App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   width: 100%;
   position: relative;
   min-height: 100vh;
@@ -57,6 +60,10 @@ nav {
   justify-content:space-evenly;
 }
 
+img {
+  width: 116px;
+}
+
 /* .nav-item  {
   padding-left:30px;
   padding-right: 30px;
@@ -76,7 +83,6 @@ nav {
 }
 
 .body-content {
-  display: flex;
   flex-direction: column;
   padding-bottom: 5.5rem;
   justify-content: center;
