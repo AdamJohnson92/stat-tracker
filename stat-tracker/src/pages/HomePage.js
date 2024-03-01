@@ -6,7 +6,7 @@ const HomePage = () => {
         <div className="body-content">
             <h2 className="padding-top">These Goons</h2>
             <div className="container">
-                <div className="player-list body-content">
+                <div className="container-list body-content">
 
                 {players.map(player => (
                     <Link key={player.gamerTag} className="player-block" to={`/${player.gamerTag}`}>

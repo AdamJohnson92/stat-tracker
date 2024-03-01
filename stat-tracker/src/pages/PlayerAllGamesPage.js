@@ -11,21 +11,24 @@ const PlayerAllGamesPage = () => {
 
 
     return (
-        <div>
+        <div className="body-content container">
             <h2 className="padding-top">{player.gamerTag}</h2>
             <img src={player.avatarSrc} className="avatar-img" />
             <p>Total Games: {player.games.length}</p>
-            <div className="body-content container">
-
-                <div>
-                    <h3 className="padding-top">Most Recent Game</h3>
-                    <p> Eliminations: {player.games[player.games.length - 1].eliminations}</p>
-                    <p> Assists: {player.games[player.games.length - 1].assists}</p>
-                    <p> Accuracy: {player.games[player.games.length - 1].accuracy}%</p>
+            <div className="body-content">
+                <h3 className="padding-top">All Games</h3>
+                <div className="container-list">
+                    {player.games.map(game => (
+                    <div className="player-block">
+                        <h4>Game: {game.id}</h4>
+                        <p> Eliminations: {game.eliminations}</p>
+                        <p> Assists: {game.assists}</p>
+                        <p> Accuracy: {game.accuracy}%</p>
+                    </div>
+                ))}
                 </div>
-
+                
             </div>
-
         </div>
 
     )

@@ -83,14 +83,13 @@ img {
 }
 
 .body-content {
-  flex-direction: column;
   padding-bottom: 5.5rem;
   justify-content: center;
   width: 100%;
   min-height: fit-content;
 }
 
-.player-list {
+.container-list {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
