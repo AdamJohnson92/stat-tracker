@@ -27,6 +27,8 @@ const PlayerAllGamesPage = () => {
                             <h4>Game: {game.id}</h4>
                             <p> Eliminations: {game.eliminations}</p>
                             <p> Assists: {game.assists}</p>
+                            <p> Shots: {game.shots}</p>
+                            <p> Hits: {game.hits} </p>
                             <p> Accuracy: {game.accuracy}%</p>
                         </div>
                     ))}
