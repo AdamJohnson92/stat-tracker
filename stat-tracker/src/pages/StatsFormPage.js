@@ -26,6 +26,8 @@ const StatsFormPage = () => {
                         id: player.games.length + 1,
                         eliminations: Number(eliminations),
                         assists: Number(assists),
+                        hits: Number(hits),
+                        shots: Number(hits) / (Number(accuracy) / 100),
                         accuracy: Number(accuracy)
                     }
                 )
@@ -38,6 +40,7 @@ const StatsFormPage = () => {
         setEliminations('')
         setAssists('')
         setAccuracy('')
+        setHits('')
     }
 
 

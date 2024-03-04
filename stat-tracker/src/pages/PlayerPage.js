@@ -17,12 +17,16 @@ const PlayerPage = () => {
 
         let elimTotal = 0;
         let assistTotal = 0;
+        let hitsTotal = 0
+        let shotTotal = 0
         let accuracyTotal = 0;
 
         for (let i = 0; i < player.games.length; i++) {
             const game = player.games[i]
             elimTotal += game.eliminations
             assistTotal += game.assists
+            hitsTotal += game.hits
+            shotTotal += game.shots
             accuracyTotal += game.accuracy
         }
 
@@ -30,12 +34,14 @@ const PlayerPage = () => {
         const assistAverage = assistTotal / player.games.length
         const accuracyAverage = accuracyTotal / player.games.length
 
-        return { elimAverage, assistAverage, accuracyAverage }
+        return { elimAverage, assistAverage, hitsTotal, shotTotal, accuracyAverage }
     }
 
     const eAverage = averages().elimAverage
     const assAverage = averages().assistAverage
     const accAverage = averages().accuracyAverage
+    const hTotal = averages().hitsTotal
+    const shTotal = averages().shotTotal
 
 
     return (
@@ -57,9 +63,11 @@ const PlayerPage = () => {
 
                 <div className="padding-bottom">
                     <h3 className="padding-top">Lifetime Averages</h3>
-                    <p> Eliminations: {eAverage}</p>
-                    <p> Assists: {assAverage}</p>
-                    <p> Accuracy: {accAverage}%</p>
+                    <p> Eliminations Per Game: {eAverage}</p>
+                    <p> Assists Per Game: {assAverage}</p>
+                    <p> Total Lifetime Shots: {shTotal}</p>
+                    <p> Total Lifetime Hits: {hTotal}</p>
+                    <p> Lifetime Accuracy: {hTotal/shTotal}%</p>
                 </div>
 
                 <div className="container">
