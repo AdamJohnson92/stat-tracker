@@ -15,6 +15,8 @@ const players = [
                 id: 1,
                 eliminations: 3,
                 assists: 3,
+                hits: 60,
+                shots:200,
                 accuracy: 30
             }
         ]
@@ -28,7 +30,9 @@ const players = [
                 id: 1,
                 eliminations: 4,
                 assists: 1,
-                accuracy: 40
+                hits: 60,
+                shots:200,
+                accuracy: 30
             }
         ]
     },
@@ -41,7 +45,9 @@ const players = [
                 id: 1,
                 eliminations: 5,
                 assists: 2,
-                accuracy: 40
+                hits: 60,
+                shots:200,
+                accuracy: 30
             }
         ]
     },
@@ -54,7 +60,9 @@ const players = [
                 id: 1,
                 eliminations: 6,
                 assists: 4,
-                accuracy: 50
+                hits: 60,
+                shots: 200,
+                accuracy: 30
             }
         ]
     }, 
@@ -67,7 +75,9 @@ const players = [
                 id: 1,
                 eliminations: 3,
                 assists: 3,
-                accuracy: 40
+                hits: 60,
+                shots: 200,
+                accuracy: 30
             }
         ]
     }, 
@@ -80,7 +90,9 @@ const players = [
                 gameId: 1,
                 eliminations: 5,
                 assists: 4,
-                accuracy: 40
+                hits: 60,
+                shots:200,
+                accuracy: 30
             }
         ]
     }

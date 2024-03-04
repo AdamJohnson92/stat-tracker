@@ -7,6 +7,7 @@ const StatsFormPage = () => {
     const [eliminations, setEliminations] = useState('')
     const [assists, setAssists] = useState('')
     const [accuracy, setAccuracy] = useState('')
+    const [hits, setHits] = useState('')
 
     function addStats(event) {
 
@@ -81,6 +82,16 @@ const StatsFormPage = () => {
                             placeholder="Accuracy"
                             value={accuracy}
                             onChange={e => setAccuracy(e.target.value)}>
+                        </input>
+                    </label>
+                </div>
+                <div className="form-group">
+                    <label>
+                        <input
+                            type='number'
+                            placeholder="Hits"
+                            value={hits}
+                            onChange={e => setHits(e.target.value)}>
                         </input>
                     </label>
                 </div>
