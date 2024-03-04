@@ -49,7 +49,10 @@ const PlayerPage = () => {
                     <h3 className="padding-top">Most Recent Game</h3>
                     <p> Eliminations: {player.games[player.games.length - 1].eliminations}</p>
                     <p> Assists: {player.games[player.games.length - 1].assists}</p>
+                     <p> Shots Fired: {player.games[player.games.length - 1].hits / (player.games[player.games.length - 1].accuracy/100)}</p>
+                     <p> Shots Hit: {player.games[player.games.length - 1].hits}</p>
                     <p> Accuracy: {player.games[player.games.length - 1].accuracy}%</p>
+                   
                 </div>
 
                 <div className="padding-bottom">
