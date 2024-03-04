@@ -55,7 +55,7 @@ const PlayerPage = () => {
                     <h3 className="padding-top">Most Recent Game</h3>
                     <p> Eliminations: {player.games[player.games.length - 1].eliminations}</p>
                     <p> Assists: {player.games[player.games.length - 1].assists}</p>
-                     <p> Shots Fired: {player.games[player.games.length - 1].hits / (player.games[player.games.length - 1].accuracy/100)}</p>
+                     <p> Shots Fired: {(player.games[player.games.length - 1].hits / (player.games[player.games.length - 1].accuracy/100)).toFixed()}</p>
                      <p> Shots Hit: {player.games[player.games.length - 1].hits}</p>
                     <p> Accuracy: {player.games[player.games.length - 1].accuracy}%</p>
                    
@@ -63,11 +63,11 @@ const PlayerPage = () => {
 
                 <div className="padding-bottom">
                     <h3 className="padding-top">Lifetime Averages</h3>
-                    <p> Eliminations Per Game: {eAverage}</p>
-                    <p> Assists Per Game: {assAverage}</p>
-                    <p> Total Lifetime Shots: {shTotal}</p>
+                    <p> Eliminations Per Game: {eAverage.toFixed(2)}</p>
+                    <p> Assists Per Game: {assAverage.toFixed(2)}</p>
+                    <p> Total Lifetime Shots: {shTotal.toFixed()}</p>
                     <p> Total Lifetime Hits: {hTotal}</p>
-                    <p> Lifetime Accuracy: {hTotal/shTotal}%</p>
+                    <p> Lifetime Accuracy: {(hTotal/shTotal).toFixed(2)}%</p>
                 </div>
 
                 <div className="container">

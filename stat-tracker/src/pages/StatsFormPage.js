@@ -49,7 +49,7 @@ const StatsFormPage = () => {
             <h2 className="padding-top">New Stats Form</h2>
             <form className="padding-top column container">
                 <div className="form-group">
-                    <select className="col-6" placeholder='Select a Gamer' value={gamer} onChange={(e) => setGamer(e.target.value)}>
+                    <select placeholder='Select a Gamer' value={gamer} onChange={(e) => setGamer(e.target.value)}>
                         <option style={{ color: 'grey' }}>Select a Gamer</option>
                         {players.map(player => (
                             <option key={player.gamerTag} className="player-block" to={`/${player.gamerTag}`}>
