@@ -65,9 +65,9 @@ const PlayerPage = () => {
                                     <p> Shots Hit: {player.games[player.games.length - 1].hits}</p>
                                     <p> Accuracy: {player.games[player.games.length - 1].accuracy}%</p>
                                     <div className="padding-bottom">
-                                        <h3 className="padding-top">Lifetime Averages</h3>
-                                        <p className="padding-top"> Eliminations Per Game: {eAverage.toFixed(2)}</p>
-                                        <p> Assists Per Game: {assAverage.toFixed(2)}</p>
+                                        <h3 className="padding-top">Lifetime Stats</h3>
+                                        <p className="padding-top"> Average Eliminations Per Game: {eAverage.toFixed(2)}</p>
+                                        <p> Average Assists Per Game: {assAverage.toFixed(2)}</p>
                                         <p> Total Lifetime Shots: {shTotal.toFixed()}</p>
                                         <p> Total Lifetime Hits: {hTotal}</p>
                                         <p> Lifetime Accuracy: {((hTotal / shTotal)*100).toFixed()}%</p>
