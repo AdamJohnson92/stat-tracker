@@ -13,13 +13,16 @@ const StatsFormPage = () => {
 
         event.preventDefault()
 
-        console.log(gamer)
-        console.log(`elims: ${eliminations}`)
-        console.log(`assists: ${assists}`)
-        console.log(`accuracy: ${accuracy}%`)
+        // console.log(gamer)
+        // console.log(`elims: ${eliminations}`)
+        // console.log(`assists: ${assists}`)
+        // console.log(`accuracy: ${accuracy}%`)
 
         for (let i = 0; i < players.length; i++) {
             const player = players[i]
+            if (eliminations === '' || assists === '' || accuracy === '' || hits === '') {
+                window.alert('All fields must be filled')
+            }
             if (player.gamerTag === gamer) {
                 player.games.push(
                     {
@@ -31,16 +34,13 @@ const StatsFormPage = () => {
                         accuracy: Number(accuracy)
                     }
                 )
+                setGamer('Select a Gamer')
+                setEliminations('')
+                setAssists('')
+                setAccuracy('')
+                setHits('')
             }
         }
-
-        console.log(players)
-
-        setGamer('Select a Gamer')
-        setEliminations('')
-        setAssists('')
-        setAccuracy('')
-        setHits('')
     }
 
 
@@ -99,7 +99,9 @@ const StatsFormPage = () => {
                     </label>
                 </div>
 
-                <button className="col-4 btn margin" onClick={addStats}>Submit Stats</button>
+                <button className="col-4 btn margin" onClick={addStats} disabled={
+                    eliminations === '' || assists === '' || accuracy === '' || hits === '' || gamer === 'Select a Gamer' || gamer === ''}
+                    >Submit Stats</button>
             </form>
         </>
 
