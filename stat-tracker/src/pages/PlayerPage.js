@@ -70,7 +70,7 @@ const PlayerPage = () => {
                                         <p> Assists Per Game: {assAverage.toFixed(2)}</p>
                                         <p> Total Lifetime Shots: {shTotal.toFixed()}</p>
                                         <p> Total Lifetime Hits: {hTotal}</p>
-                                        <p> Lifetime Accuracy: {(hTotal / shTotal).toFixed(2)}%</p>
+                                        <p> Lifetime Accuracy: {((hTotal / shTotal)*100).toFixed()}%</p>
                                     </div>
 
                                     <div className="container">
