@@ -1,10 +1,12 @@
 import express from "express";
 import 'dotenv/config'
-import gameRoutes from "./routes/game-routes.js";
+import playerRoutes from "./routes/player-routes.js";
 
 //express server application
 const app = express()
 
+//middleware
+app.use(express.json())
 
 app.use((req, res, next) => {
     console.log(req.path, req.method)
@@ -12,7 +14,7 @@ app.use((req, res, next) => {
 })
 
 //routes
-app.use('/api/game-routes', gameRoutes)
+app.use('/api/player-routes', playerRoutes)
 
 
 app.listen(process.env.PORT, () => {
