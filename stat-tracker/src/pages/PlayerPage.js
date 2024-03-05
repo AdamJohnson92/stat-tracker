@@ -48,35 +48,47 @@ const PlayerPage = () => {
         <div className="body-content container">
             <h2 className="padding-top">{player.gamerTag}</h2>
             <img src={player.avatarSrc} className="avatar-img" />
-            <p>Total Games: {player.games.length}</p>
-            <div className="body-content container">
+            <div>
+                <p>Total Games: {player.games.length}</p>
+                <div className="body-content container">
+                    <div>
+                        {
+                            !player.games.length ?
+                                <>
+                                    <h3>This player doesn't have any games in the database.</h3>
+                                </> :
+                                <>
+                                    <h3 className="padding-top">Most Recent Game</h3>
+                                    <p> Eliminations: {player.games[player.games.length - 1].eliminations}</p>
+                                    <p> Assists: {player.games[player.games.length - 1].assists}</p>
+                                    <p> Shots Fired: {(player.games[player.games.length - 1].hits / (player.games[player.games.length - 1].accuracy / 100)).toFixed()}</p>
+                                    <p> Shots Hit: {player.games[player.games.length - 1].hits}</p>
+                                    <p> Accuracy: {player.games[player.games.length - 1].accuracy}%</p>
+                                    <div className="padding-bottom">
+                                        <h3 className="padding-top">Lifetime Averages</h3>
+                                        <p className="padding-top"> Eliminations Per Game: {eAverage.toFixed(2)}</p>
+                                        <p> Assists Per Game: {assAverage.toFixed(2)}</p>
+                                        <p> Total Lifetime Shots: {shTotal.toFixed()}</p>
+                                        <p> Total Lifetime Hits: {hTotal}</p>
+                                        <p> Lifetime Accuracy: {(hTotal / shTotal).toFixed(2)}%</p>
+                                    </div>
 
-                <div>
-                    <h3 className="padding-top">Most Recent Game</h3>
-                    <p> Eliminations: {player.games[player.games.length - 1].eliminations}</p>
-                    <p> Assists: {player.games[player.games.length - 1].assists}</p>
-                     <p> Shots Fired: {(player.games[player.games.length - 1].hits / (player.games[player.games.length - 1].accuracy/100)).toFixed()}</p>
-                     <p> Shots Hit: {player.games[player.games.length - 1].hits}</p>
-                    <p> Accuracy: {player.games[player.games.length - 1].accuracy}%</p>
-                   
+                                    <div className="container">
+                                        <Link to={`/${player.gamerTag}/all-games`}>
+                                            <button className="btn">View All of {player.gamerTag}'s Games</button>
+                                        </Link>
+                                    </div>
+                                </>
+                        }
+
+
+                    </div>
+
+
+
                 </div>
-
-                <div className="padding-bottom">
-                    <h3 className="padding-top">Lifetime Averages</h3>
-                    <p> Eliminations Per Game: {eAverage.toFixed(2)}</p>
-                    <p> Assists Per Game: {assAverage.toFixed(2)}</p>
-                    <p> Total Lifetime Shots: {shTotal.toFixed()}</p>
-                    <p> Total Lifetime Hits: {hTotal}</p>
-                    <p> Lifetime Accuracy: {(hTotal/shTotal).toFixed(2)}%</p>
-                </div>
-
-                <div className="container">
-                    <Link to={`/${player.gamerTag}/all-games`}>
-                        <button className="btn">View All of {player.gamerTag}'s Games</button>
-                    </Link>
-                </div>
-
             </div>
+
 
         </div>
 

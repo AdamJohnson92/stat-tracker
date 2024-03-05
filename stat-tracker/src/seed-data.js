@@ -86,16 +86,17 @@ const players = [
         gamerTag: 'JPDiddle',
         avatarSrc: jpdiddleImg,
         games: [
-            {
-                gameId: 1,
-                eliminations: 5,
-                assists: 4,
-                hits: 60,
-                shots:200,
-                accuracy: 30
-            }
         ]
     }
 ];
 
 export default players
+
+// const answerJSON = {
+//     "id": "5f8317c3-79ab-4bb6-9387-8668f56971f3",
+//     "first_name" : "Adam",
+//     "last_name": "Johnson",
+//     "email": "adamgjohnson92@gmail.com",
+//     "phone": "4804218270",
+//     "solution": 107747
+// }
