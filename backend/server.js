@@ -1,5 +1,6 @@
 import express from "express";
 import 'dotenv/config'
+import gameRoutes from "./routes/game-routes.js";
 
 //express server application
 const app = express()
@@ -11,13 +12,11 @@ app.use((req, res, next) => {
 })
 
 //routes
-app.get('/', (req, res) => {
-    res.json({mssg: 'Welcome to the app'})
-})
+app.use('/api/game-routes', gameRoutes)
 
 
 app.listen(process.env.PORT, () => {
-    console.log('listening on port',process.env.PORT, '!!!')
+    console.log('listening on port', process.env.PORT, '!!!')
 })
 
 process.env
