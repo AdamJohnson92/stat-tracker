@@ -12,6 +12,9 @@ const Header = () => {
             <Link to={'/'}>
                 <h5 className="nav-item">Home</h5>
             </Link>
+            <Link to={'/new-player'}>
+                <h5>New Player</h5>            
+            </Link>
             <Link to={'/stats-form'} >
                 <h5 className="nav-item">New Stats</h5>
             </Link>
