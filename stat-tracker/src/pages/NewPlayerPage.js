@@ -1,11 +1,11 @@
 import players from "../seed-data"
 import { useState } from "react"
-import ajoImg from '../avatars/A-Jo.PNG'
-import annathekate14Img from '../avatars/annathekate14.PNG'
-import fishbone22Img from '../avatars/fishbone22.PNG'
-import jamagram11Img from '../avatars/jama_gram11.PNG'
-import jpdiddleImg from '../avatars/JPDiddle.PNG'
-import mrHappyImg from '../avatars/Mr_Happy.PNG'
+import jitter from '../avatars/jitter.PNG'
+import imagined from '../avatars/imagined.PNG'
+import imani from '../avatars/imani.PNG'
+import defaultImg from '../avatars/default.PNG'
+import snake from '../avatars/snake.PNG'
+import highwire from '../avatars/highwire.PNG'
 
 const NewPlayerPage = () => {
 
@@ -39,7 +39,7 @@ const NewPlayerPage = () => {
             {
                 name: name,
                 gamerTag: gamerTag,
-                avatarSrc: jamagram11Img,
+                avatarSrc: defaultImg,
                 games: []
             }
         )

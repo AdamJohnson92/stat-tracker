@@ -1,15 +1,15 @@
-import ajoImg from './avatars/A-Jo.PNG'
-import annathekate14Img from './avatars/annathekate14.PNG'
-import fishbone22Img from './avatars/fishbone22.PNG'
-import jamagram11Img from './avatars/jama_gram11.PNG'
-import jpdiddleImg from './avatars/JPDiddle.PNG'
-import mrHappyImg from './avatars/Mr_Happy.PNG'
+import jitter from './avatars/jitter.PNG'
+import imagined from './avatars/imagined.PNG'
+import imani from './avatars/imani.PNG'
+import defaultImg from './avatars/default.PNG'
+import snake from './avatars/snake.PNG'
+import highwire from './avatars/highwire.PNG'
 
 const players = [
     {
         name: 'Adam',
         gamerTag: 'A-Jo',
-        avatarSrc: ajoImg,
+        avatarSrc: jitter,
         games: [
             {
                 id: 1,
@@ -24,7 +24,7 @@ const players = [
     {
         name: 'Anna',
         gamerTag: 'annathekate14',
-        avatarSrc: annathekate14Img,
+        avatarSrc: imagined,
         games: [
             {
                 id: 1,
@@ -39,7 +39,7 @@ const players = [
     {
         name: 'Jami',
         gamerTag: 'jama_gram11',
-        avatarSrc: jamagram11Img,
+        avatarSrc: defaultImg,
         games:[
             {
                 id: 1,
@@ -54,7 +54,7 @@ const players = [
     {
         name: 'Zach',
         gamerTag: 'Mr._Happy',
-        avatarSrc: mrHappyImg,
+        avatarSrc: highwire,
         games: [
             {
                 id: 1,
@@ -69,7 +69,7 @@ const players = [
     {
         name: 'Mike',
         gamerTag: 'Fishbone22',
-        avatarSrc: fishbone22Img,
+        avatarSrc: imani,
         games: [
             {
                 id: 1,
@@ -84,7 +84,7 @@ const players = [
     {
         name: 'Jack',
         gamerTag: 'JPDiddle',
-        avatarSrc: jpdiddleImg,
+        avatarSrc: snake,
         games: [
         ]
     }
