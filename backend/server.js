@@ -1,6 +1,7 @@
 import express from "express";
 import 'dotenv/config'
 import playerRoutes from "./routes/player-routes.js";
+import mongoose, { mongo } from "mongoose";
 
 //express server application
 const app = express()
@@ -16,9 +17,11 @@ app.use((req, res, next) => {
 //routes
 app.use('/api/player-routes', playerRoutes)
 
-
-app.listen(process.env.PORT, () => {
-    console.log('listening on port', process.env.PORT, '!!!')
-})
-
-process.env
+// connect to MongoDB
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log('Connected to the database, and listening on port', process.env.PORT, '!!!')
+        })
+    })
+    .catch((error) => console.log(error))
