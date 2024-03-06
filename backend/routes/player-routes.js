@@ -2,7 +2,9 @@ import express from "express";
 import { 
     getPlayers, 
     getOnePlayer, 
-    createPlayer 
+    createPlayer,
+    deletePlayer,
+    updatePlayer, 
 } from "../controllers/playerController.js";
 
 const router = express.Router()
@@ -13,12 +15,8 @@ router.get('/:id', getOnePlayer)
 
 router.post('/', createPlayer)
 
-router.delete('/:id', (req, res) => {
-    res.json({message: 'DELETE a player'})
-})
+router.delete('/:id', deletePlayer)
 
-router.patch('/:id', (req, res) => {
-    res.json({message: 'UPDATE a player'})
-})
+router.patch('/:id', updatePlayer)
 
 export default router
