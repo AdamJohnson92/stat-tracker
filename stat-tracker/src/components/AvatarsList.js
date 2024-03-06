@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import jitter from '../avatars/jitter.PNG'
 import imagined from '../avatars/imagined.PNG'
 import imani from '../avatars/imani.PNG'
@@ -7,18 +9,27 @@ import highwire from '../avatars/highwire.PNG'
 
 const AvatarList = ({avatarChoice, setAvatar}) => {
 
-    const avatarArr = [defaultImg, jitter, imagined, imani,  snake, highwire]
+    const [avatarBorderStyling, setAvatarBorderStyling] = useState('no-border')
+
+    const avatarArr = [{img: defaultImg, name: 'defaultImg'}, {img: jitter, name: 'jitter'}, {img: imagined, name:'imagined'}, {img: imani, name:'imani'},  {img: snake, name:'name'}, {img: highwire, name:'highwire'}]
+
+
 
     function chooseAvatar(event) {
-        console.log(event.target.src)
-        setAvatar()
+        for (let i=0; i<avatarArr.length;i++) {
+            if (event.target.matches(`#${avatarArr[i].name}`)) {
+                setAvatar(avatarArr[i].img)
+                setAvatarBorderStyling('gold-border')
+            }
+        }
+        
     }
 
     return (
         <div className='container'>
             <h3 className='padding-top'> Choose An Avatar</h3>
             {avatarArr.map(avatar => (
-                <img src={avatar} className='avatar-img margin avatar-selection' onClick={chooseAvatar}></img>
+                <img src={avatar.img} className={`avatar-img margin avatar-selection ${avatarBorderStyling}`} onClick={chooseAvatar} id={avatar.name} tabIndex={'0'}></img>
             ))}
         </div>
     )

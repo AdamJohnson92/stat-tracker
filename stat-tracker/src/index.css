@@ -119,6 +119,23 @@ img {
   cursor: pointer;
 }
 
+.avatar-selection:focus {
+  outline: 4px solid gold;
+  transition: 0s;
+}
+
+/* .avatar-selection::selection {
+  border: 4px, solid, gold
+} */
+
+.no-border {
+  border: 0px;
+}
+
+/* .gold-border {
+  border: 4px solid gold
+} */
+
 a:-webkit-any-link {
   text-decoration: none;
   color: white;
