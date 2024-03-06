@@ -113,6 +113,12 @@ img {
   border-radius: 100px;
 }
 
+.avatar-selection:hover {
+  transform: scale(1.2);
+  transition: ease-in .08s;
+  cursor: pointer;
+}
+
 a:-webkit-any-link {
   text-decoration: none;
   color: white;

@@ -12,6 +12,7 @@ const NewPlayerPage = () => {
 
     const [name, setName] = useState('')
     const [gamerTag, setGamerTag] = useState('')
+    const [avatar, setAvatar] = useState(defaultImg)
 
 
     function addPlayer(event) {
@@ -40,7 +41,7 @@ const NewPlayerPage = () => {
             {
                 name: name,
                 gamerTag: gamerTag,
-                avatarSrc: defaultImg,
+                avatarSrc: avatar,
                 games: []
             }
         )
@@ -74,7 +75,7 @@ const NewPlayerPage = () => {
                         </input>
                     </label>
                 </div>
-                <AvatarList/>
+                <AvatarList avatarChoice={avatar} setAvatar={setAvatar}/>
 
                 <button className="col-4 btn margin" onClick={addPlayer} disabled={
                     name === '' || gamerTag === ''}
