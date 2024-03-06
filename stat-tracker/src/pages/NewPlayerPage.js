@@ -54,7 +54,7 @@ const NewPlayerPage = () => {
 
 
     return (
-        <>
+        <div className="body-content">
             <h2 className="padding-top">New Player Form</h2>
             <form className="padding-top column container">
                 <div className="form-group">
@@ -77,11 +77,11 @@ const NewPlayerPage = () => {
                 </div>
                 <AvatarList avatarChoice={avatar} setAvatar={setAvatar}/>
 
-                <button className="col-4 btn margin" onClick={addPlayer} disabled={
+                <button className="col-4 btn btn-light margin" onClick={addPlayer} disabled={
                     name === '' || gamerTag === ''}
                 >Submit Player</button>
             </form>
-        </>
+        </div>
 
     )
 }

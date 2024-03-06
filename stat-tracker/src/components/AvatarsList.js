@@ -26,7 +26,7 @@ const AvatarList = ({avatarChoice, setAvatar}) => {
     }
 
     return (
-        <div className='container'>
+        <div className='container container'>
             <h3 className='padding-top'> Choose An Avatar</h3>
             {avatarArr.map(avatar => (
                 <img src={avatar.img} className={`avatar-img margin avatar-selection ${avatarBorderStyling}`} onClick={chooseAvatar} id={avatar.name} tabIndex={'0'}></img>

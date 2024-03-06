@@ -99,7 +99,7 @@ const StatsFormPage = () => {
                     </label>
                 </div>
 
-                <button className="col-4 btn margin" onClick={addStats} disabled={
+                <button type='button'className="col-4 btn btn-light margin" onClick={addStats} disabled={
                     eliminations === '' || assists === '' || accuracy === '' || hits === '' || gamer === 'Select a Gamer' || gamer === ''}
                     >Submit Stats</button>
             </form>

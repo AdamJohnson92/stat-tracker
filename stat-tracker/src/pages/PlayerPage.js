@@ -9,9 +9,6 @@ const PlayerPage = () => {
     const { playerId } = params
     const player = players.find(player => player.gamerTag === playerId);
 
-
-
-
     const numOfGames = player.games.length
     const averages = () => {
 
@@ -42,6 +39,16 @@ const PlayerPage = () => {
     const accAverage = averages().accuracyAverage
     const hTotal = averages().hitsTotal
     const shTotal = averages().shotTotal
+
+    function deletePlayer() {
+        console.log(player.gamerTag, 'deleted.')
+        for (let i = 0; i < players.length; i++) {
+            if (players[i].gamerTag === player.gamerTag) {
+                players.splice(i, 1)
+            }
+        }
+
+    }
 
 
     return (
@@ -75,7 +82,7 @@ const PlayerPage = () => {
 
                                     <div className="container">
                                         <Link to={`/${player.gamerTag}/all-games`}>
-                                            <button className="btn">View All of {player.gamerTag}'s Games</button>
+                                            <button type='button' className="btn btn-light">View All of {player.gamerTag}'s Games</button>
                                         </Link>
                                     </div>
                                 </>
@@ -84,7 +91,7 @@ const PlayerPage = () => {
 
                     </div>
 
-
+                        <button type='button'className="btn btn-danger margin" onClick={deletePlayer}>Delete {player.gamerTag}</button>
 
                 </div>
             </div>
