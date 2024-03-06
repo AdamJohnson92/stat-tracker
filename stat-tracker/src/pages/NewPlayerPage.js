@@ -1,5 +1,6 @@
 import players from "../seed-data"
 import { useState } from "react"
+import AvatarList from "../components/AvatarsList"
 import jitter from '../avatars/jitter.PNG'
 import imagined from '../avatars/imagined.PNG'
 import imani from '../avatars/imani.PNG'
@@ -73,6 +74,7 @@ const NewPlayerPage = () => {
                         </input>
                     </label>
                 </div>
+                <AvatarList/>
 
                 <button className="col-4 btn margin" onClick={addPlayer} disabled={
                     name === '' || gamerTag === ''}
