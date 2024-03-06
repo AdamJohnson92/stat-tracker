@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import PlayerPage from './pages/PlayerPage';
 import StatsFormPage from './pages/StatsFormPage';
 import NewPlayerPage from './pages/NewPlayerPage';
+import DeletedPlayerPage from './pages/DeletedPlayer';
 import PlayerAllGamesPage from './pages/PlayerAllGamesPage';
 import NotFoundPage from './pages/NotFoundPage';
 
@@ -19,6 +20,7 @@ function App() {
             <Route path='/stats-form' element={<StatsFormPage />}  />
             <Route path='/:playerId/all-games' element={<PlayerAllGamesPage />}/>
             <Route path='/new-player' element={<NewPlayerPage />} />
+            <Route path='/deleted-player' element={<DeletedPlayerPage/>}/>
             <Route path='*' element={<NotFoundPage />}/>
           </Routes>
         <footer>

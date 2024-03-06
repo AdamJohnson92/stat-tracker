@@ -77,7 +77,7 @@ const PlayerPage = () => {
                                         <p> Average Assists Per Game: {assAverage.toFixed(2)}</p>
                                         <p> Total Lifetime Shots: {shTotal.toFixed()}</p>
                                         <p> Total Lifetime Hits: {hTotal}</p>
-                                        <p> Lifetime Accuracy: {((hTotal / shTotal)*100).toFixed()}%</p>
+                                        <p> Lifetime Accuracy: {((hTotal / shTotal) * 100).toFixed()}%</p>
                                     </div>
 
                                     <div className="container">
@@ -90,8 +90,10 @@ const PlayerPage = () => {
 
 
                     </div>
+                    <Link to='/deleted-player'>
+                        <button type='button' className="btn btn-danger margin" onClick={deletePlayer}>Delete {player.gamerTag}</button>
+                    </Link>
 
-                        <button type='button'className="btn btn-danger margin" onClick={deletePlayer}>Delete {player.gamerTag}</button>
 
                 </div>
             </div>
