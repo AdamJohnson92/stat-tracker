@@ -3,42 +3,62 @@ import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import PageNotFound from "./PageNotFound"
+import defaultImg from '../avatars/default.PNG'
 
 const PlayerPage = () => {
 
-    const params = useParams()
+    const [thisPlayer, setThisPlayer] = useState(null)
+
+ const params = useParams()
     const { playerId } = params
-    const player = players.find((player) => player.gamerTag === playerId);
+    const player = playerId;
 
-    const averages = () => {
+    useEffect(() => {
+        const fetchPlayer = async() => {
+            const response = await fetch(`/api/player-routes/${playerId}`)
 
-        let elimTotal = 0;
-        let assistTotal = 0;
-        let hitsTotal = 0
-        let shotTotal = 0
-        let accuracyTotal = 0;
+            const json = await response.json()
 
-        for (let i = 0; i < player.games.length; i++) {
-            const game = player.games[i]
-            elimTotal += game.eliminations
-            assistTotal += game.assists
-            hitsTotal += game.hits
-            shotTotal += game.shots
-            accuracyTotal += game.accuracy
+            if (response.ok) {
+                setThisPlayer(json)
+            }
+
         }
 
-        const elimAverage = elimTotal / player.games.length
-        const assistAverage = assistTotal / player.games.length
-        const accuracyAverage = accuracyTotal / player.games.length
+        fetchPlayer()
+    },[])
 
-        return { elimAverage, assistAverage, hitsTotal, shotTotal, accuracyAverage }
-    }
+   
 
-    const eAverage = averages().elimAverage
-    const assAverage = averages().assistAverage
-    const accAverage = averages().accuracyAverage
-    const hTotal = averages().hitsTotal
-    const shTotal = averages().shotTotal
+    // const averages = () => {
+
+    //     let elimTotal = 0;
+    //     let assistTotal = 0;
+    //     let hitsTotal = 0
+    //     let shotTotal = 0
+    //     let accuracyTotal = 0;
+
+    //     for (let i = 0; i < player.games.length; i++) {
+    //         const game = player.games[i]
+    //         elimTotal += game.eliminations
+    //         assistTotal += game.assists
+    //         hitsTotal += game.hits
+    //         shotTotal += game.shots
+    //         accuracyTotal += game.accuracy
+    //     }
+
+    //     const elimAverage = elimTotal / player.games.length
+    //     const assistAverage = assistTotal / player.games.length
+    //     const accuracyAverage = accuracyTotal / player.games.length
+
+    //     return { elimAverage, assistAverage, hitsTotal, shotTotal, accuracyAverage }
+    // }
+
+    // const eAverage = averages().elimAverage
+    // const assAverage = averages().assistAverage
+    // const accAverage = averages().accuracyAverage
+    // const hTotal = averages().hitsTotal
+    // const shTotal = averages().shotTotal
 
     function deletePlayer() {
         console.log(player.gamerTag, 'deleted.')
@@ -55,10 +75,10 @@ const PlayerPage = () => {
         <div className="body-content container">
             {!player ? <PageNotFound /> :
                 <>
-                    <h2 className="padding-top">{player.gamerTag}</h2>
-                    <img src={player.avatarSrc} className="avatar-img" />
+                    <h2 className="padding-top">{thisPlayer.gamerTag}</h2>
+                    <img src={defaultImg} className="avatar-img" />
                     <div>
-                        <p>Total Games: {player.games.length}</p>
+                        {/* <p>Total Games: {player.games.length}</p>
                         <div className="body-content container">
                             <div>
                                 {
@@ -92,12 +112,13 @@ const PlayerPage = () => {
 
 
                             </div>
-                            <Link to='/deleted-player'>
+                           
+
+
+                        </div>  */}
+                        <Link to='/deleted-player'>
                                 <button type='button' className="btn btn-danger margin" onClick={deletePlayer}>Delete {player.gamerTag}</button>
                             </Link>
-
-
-                        </div>
                     </div>
                 </>}
 
