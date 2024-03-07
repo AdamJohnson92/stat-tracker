@@ -11,9 +11,8 @@ const playerSchema = new Schema({
         type: String,
         required: true,
     },
-    avatarSrc: {
+    avatar: {
         type: String,
-        required: true,
     },
     games: []
 }, { timestamps: true })
