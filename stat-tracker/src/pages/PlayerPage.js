@@ -7,21 +7,14 @@ import defaultImg from '../avatars/default.PNG'
 
 const PlayerPage = () => {
 
-    const blankPlayer = {
-         gamerTag:'',
-        name: '',
-        _id: '',
-        games: []
-    }
+    const [thisPlayer, setThisPlayer] = useState(null)
 
-    const [thisPlayer, setThisPlayer] = useState(blankPlayer)
-
- const params = useParams()
+    const params = useParams()
     const { playerId } = params
     const player = playerId;
 
     useEffect(() => {
-        const fetchPlayer = async() => {
+        const fetchPlayer = async () => {
             const response = await fetch(`/api/player-routes/${playerId}`)
             const json = await response.json()
 
@@ -32,9 +25,9 @@ const PlayerPage = () => {
         }
 
         fetchPlayer()
-    },[])
+    }, [])
 
-   
+
 
     // const averages = () => {
 
@@ -66,23 +59,24 @@ const PlayerPage = () => {
     // const hTotal = averages().hitsTotal
     // const shTotal = averages().shotTotal
 
-  const deletePlayer = async () => {
-    console.log(thisPlayer)
-    const response = await fetch(`/api/player-routes/${thisPlayer._id}`, {
-        method: 'DELETE'
-    })
-    const json = await response.json()
+    const deletePlayer = async () => {
+        console.log(thisPlayer)
+        const response = await fetch(`/api/player-routes/${thisPlayer._id}`, {
+            method: 'DELETE'
+        })
+        const json = await response.json()
 
-    if (response.ok) {
-        setThisPlayer(blankPlayer)
+        if (response.ok) {
+            setThisPlayer(null)
+        }
     }
-  }
 
 
     return (
         <div className="body-content container">
-            {!player ? <PageNotFound /> :
-                <>
+            <>
+                {thisPlayer && (
+                    <> 
                     <h2 className="padding-top">{thisPlayer.gamerTag}</h2>
                     <img src={defaultImg} className="avatar-img" />
                     <div>
@@ -125,10 +119,15 @@ const PlayerPage = () => {
 
                         </div>  */}
                         <Link to='/deleted-player'>
-                                <button type='button' className="btn btn-danger margin" onClick={deletePlayer}>Delete </button>
-                            </Link>
+                            <button type='button' className="btn btn-danger margin" onClick={deletePlayer}>Delete </button>
+                        </Link>
                     </div>
-                </>}
+                    </>
+                       
+                )}
+
+            </>
+
 
 
 
