@@ -12,11 +12,11 @@ const Header = () => {
             <Link to={'/'}>
                 <h5 className="nav-item">Home</h5>
             </Link>
-            <Link to={'/new-player'}>
+            <Link to={'/new-player-form'}>
                 <h5>New Player</h5>            
             </Link>
             <Link to={'/stats-form'} >
-                <h5 className="nav-item">New Stats</h5>
+                <h5 className="nav-item">New Game</h5>
             </Link>
         </nav>
         </>

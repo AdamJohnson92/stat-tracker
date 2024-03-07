@@ -85,8 +85,7 @@ const players = [
         name: 'Jack',
         gamerTag: 'JPDiddle',
         avatarSrc: snake,
-        games: [
-        ]
+        games: []
     }
 ];
 

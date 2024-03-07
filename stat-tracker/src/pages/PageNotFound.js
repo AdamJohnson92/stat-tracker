@@ -1,4 +1,4 @@
-const NotFoundPage = () => {
+const PageNotFound = () => {
 
 
 
@@ -10,4 +10,4 @@ const NotFoundPage = () => {
     )
 }
 
-export default NotFoundPage
+export default PageNotFound
