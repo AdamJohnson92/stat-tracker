@@ -7,7 +7,14 @@ import defaultImg from '../avatars/default.PNG'
 
 const PlayerPage = () => {
 
-    const [thisPlayer, setThisPlayer] = useState(null)
+    const blankPlayer = {
+         gamerTag:'',
+        name: '',
+        _id: '',
+        games: []
+    }
+
+    const [thisPlayer, setThisPlayer] = useState(blankPlayer)
 
  const params = useParams()
     const { playerId } = params
@@ -16,7 +23,6 @@ const PlayerPage = () => {
     useEffect(() => {
         const fetchPlayer = async() => {
             const response = await fetch(`/api/player-routes/${playerId}`)
-
             const json = await response.json()
 
             if (response.ok) {
@@ -60,15 +66,17 @@ const PlayerPage = () => {
     // const hTotal = averages().hitsTotal
     // const shTotal = averages().shotTotal
 
-    function deletePlayer() {
-        console.log(player.gamerTag, 'deleted.')
-        for (let i = 0; i < players.length; i++) {
-            if (players[i].gamerTag === player.gamerTag) {
-                players.splice(i, 1)
-            }
-        }
+  const deletePlayer = async () => {
+    console.log(thisPlayer)
+    const response = await fetch(`/api/player-routes/${thisPlayer._id}`, {
+        method: 'DELETE'
+    })
+    const json = await response.json()
 
+    if (response.ok) {
+        setThisPlayer(blankPlayer)
     }
+  }
 
 
     return (
@@ -117,7 +125,7 @@ const PlayerPage = () => {
 
                         </div>  */}
                         <Link to='/deleted-player'>
-                                <button type='button' className="btn btn-danger margin" onClick={deletePlayer}>Delete {player.gamerTag}</button>
+                                <button type='button' className="btn btn-danger margin" onClick={deletePlayer}>Delete </button>
                             </Link>
                     </div>
                 </>}
