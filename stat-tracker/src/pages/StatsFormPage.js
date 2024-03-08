@@ -1,13 +1,29 @@
-import players from "../seed-data"
-import { useState } from "react"
+// import players from "../seed-data"
+import { useState, useEffect } from "react"
 
 const StatsFormPage = () => {
 
+    const [players, setPlayers] = useState(null)
     const [gamer, setGamer] = useState('')
     const [eliminations, setEliminations] = useState('')
     const [assists, setAssists] = useState('')
     const [accuracy, setAccuracy] = useState('')
     const [hits, setHits] = useState('')
+
+    useEffect(() => {
+        const fetchPlayers = async () => {
+            const response = await fetch('/api/player-routes/')
+            const json = await response.json()
+            console.log(json)
+
+            if (response.ok) {
+                setPlayers(json)
+            }
+        }
+
+        fetchPlayers()
+
+    }, [])
 
     function addStats(event) {
 
@@ -47,62 +63,68 @@ const StatsFormPage = () => {
     return (
         <>
             <h2 className="padding-top">New Stats Form</h2>
-            <form className="padding-top column container">
-                <div className="form-group">
-                    <select placeholder='Select a Gamer' value={gamer} onChange={(e) => setGamer(e.target.value)}>
-                        <option style={{ color: 'grey' }}>Select a Gamer</option>
-                        {players.map(player => (
-                            <option key={player.gamerTag} className="player-block" to={`/${player.gamerTag}`}>
-                                {player.gamerTag}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label>
-                        <input
-                            type='number'
-                            placeholder="Eliminations"
-                            value={eliminations}
-                            onChange={e => setEliminations(e.target.value)}>
-                        </input>
-                    </label>
-                </div>
-                <div className="form-group">
-                    <label>
-                        <input
-                            type='number'
-                            placeholder="Assists"
-                            value={assists}
-                            onChange={e => setAssists(e.target.value)}>
-                        </input>
-                    </label>
-                </div>
-                <div className="form-group">
-                    <label>
-                        <input
-                            type='number'
-                            placeholder="Accuracy"
-                            value={accuracy}
-                            onChange={e => setAccuracy(e.target.value)}>
-                        </input>
-                    </label>
-                </div>
-                <div className="form-group">
-                    <label>
-                        <input
-                            type='number'
-                            placeholder="Hits"
-                            value={hits}
-                            onChange={e => setHits(e.target.value)}>
-                        </input>
-                    </label>
-                </div>
 
-                <button type='button'className="col-4 btn btn-light margin" onClick={addStats} disabled={
-                    eliminations === '' || assists === '' || accuracy === '' || hits === '' || gamer === 'Select a Gamer' || gamer === ''}
-                    >Submit Stats</button>
-            </form>
+            {players && (
+                <>
+                    <form className="padding-top column container">
+                        <div className="form-group">
+                            <select placeholder='Select a Gamer' value={gamer} onChange={(e) => setGamer(e.target.value)}>
+                                <option style={{ color: 'grey' }}>Select a Gamer</option>
+                                {players && players.map(player => (
+                                    <option key={player.gamerTag} className="player-block" to={`/${player.gamerTag}`}>
+                                        {player.gamerTag}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <label>
+                                <input
+                                    type='number'
+                                    placeholder="Eliminations"
+                                    value={eliminations}
+                                    onChange={e => setEliminations(e.target.value)}>
+                                </input>
+                            </label>
+                        </div>
+                        <div className="form-group">
+                            <label>
+                                <input
+                                    type='number'
+                                    placeholder="Assists"
+                                    value={assists}
+                                    onChange={e => setAssists(e.target.value)}>
+                                </input>
+                            </label>
+                        </div>
+                        <div className="form-group">
+                            <label>
+                                <input
+                                    type='number'
+                                    placeholder="Accuracy"
+                                    value={accuracy}
+                                    onChange={e => setAccuracy(e.target.value)}>
+                                </input>
+                            </label>
+                        </div>
+                        <div className="form-group">
+                            <label>
+                                <input
+                                    type='number'
+                                    placeholder="Hits"
+                                    value={hits}
+                                    onChange={e => setHits(e.target.value)}>
+                                </input>
+                            </label>
+                        </div>
+
+                        <button type='button' className="col-4 btn btn-light margin" onClick={addStats} disabled={
+                            eliminations === '' || assists === '' || accuracy === '' || hits === '' || gamer === 'Select a Gamer' || gamer === ''}
+                        >Submit Stats</button>
+                    </form>
+                </>
+            )}
+            
         </>
 
     )
