@@ -1,4 +1,3 @@
-// import players from "../seed-data"
 import { useState, useEffect } from "react"
 
 const StatsFormPage = () => {
