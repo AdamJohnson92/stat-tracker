@@ -90,7 +90,7 @@ const PlayerPage = () => {
             {thisPlayer && (
                 <>
                     <h2 className="padding-top">{thisPlayer.gamerTag}</h2>
-                    <img src={defaultImg} className="avatar-img" />
+                    <img src={require(`../avatars/${thisPlayer.avatar}.PNG`)} className="avatar-img" />
                     <p>Number of Games: {thisPlayer.games.length}</p>
                     <div>
                         <div className="body-content container">

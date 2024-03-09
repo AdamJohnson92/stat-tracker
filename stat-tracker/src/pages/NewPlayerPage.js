@@ -20,7 +20,8 @@ const NewPlayerPage = () => {
     const addPlayer = async (event) => {
         event.preventDefault()
 
-        const player = {name, gamerTag, avatar}
+        const player = { name, gamerTag, avatar }
+        console.log(player)
 
         const response = await fetch('/api/player-routes', {
             method: 'POST',
@@ -28,7 +29,7 @@ const NewPlayerPage = () => {
             headers: {
                 'Content-Type': 'application/json'
             }
-        }) 
+        })
 
         const json = await response.json()
 
@@ -36,6 +37,7 @@ const NewPlayerPage = () => {
             setError(json.error)
         }
         if (response.ok) {
+            console.log(json)
             setError(null)
             window.alert(`${gamerTag} has been added`)
             console.log('new player added', json)
@@ -43,26 +45,13 @@ const NewPlayerPage = () => {
             setGamerTag('')
         }
 
-        // console.log(gamer)
-        // console.log(`elims: ${eliminations}`)
-        // console.log(`assists: ${assists}`)
-        // console.log(`accuracy: ${accuracy}%`)
+    }
 
-        // for (let i = 0; i < players.length; i++) {
+    const checkAvatar = (event) => {
+        event.preventDefault()
 
-        //     if (name === '' || gamerTag === '' ) {
-        //         window.alert('All fields must be filled')
-        //     }
-
-        //         // setGamer('Select a Gamer')
-        //         // setEliminations('')
-        //         // setAssists('')
-        //         // setAccuracy('')
-        //         // setHits('')
-        //     }
-
-
-        
+        console.log(avatar)
+        console.log()
     }
 
 
@@ -90,7 +79,8 @@ const NewPlayerPage = () => {
                         </input>
                     </label>
                 </div>
-                <AvatarList avatarChoice={avatar} setAvatar={setAvatar}/>
+                <AvatarList avatar={avatar} setAvatar={setAvatar} />
+                <button onClick={checkAvatar} >Check Avatar Choice</button>
                 <button className="col-4 btn btn-light margin" onClick={addPlayer} disabled={
                     name === '' || gamerTag === ''}
                 >Submit Player</button>

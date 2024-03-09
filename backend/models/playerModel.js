@@ -59,9 +59,9 @@ const gameData = [
 const Player = mongoose.model('Player', playerSchema)
 
 
-Player
-    .create({name: 'Tav', gamerTag:'TavGames', avatar:'default', games: gameData})
-    .then(data => console.log(data))
-    .catch(err => console.error(err))
+// Player
+//     .create({name: 'Tav', gamerTag:'TavGames', avatar:'defaultImg', games: gameData})
+//     .then(data => console.log(data))
+//     .catch(err => console.error(err))
 
 export default Player
