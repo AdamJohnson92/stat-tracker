@@ -28,10 +28,10 @@ const getOnePlayer = async (req, res) => {
 
 //create new player
 const createPlayer = async (req, res) => {
-    const { name, gamerTag, avatarSrc, games } = req.body
+    const { name, gamerTag, avatar, games } = req.body
 
     try {
-        const player = await Player.create({ name, gamerTag, avatarSrc, games })
+        const player = await Player.create({ name, gamerTag, avatar, games })
         res.status(200).json(player)
     } catch (error) {
         res.status(400).json({ error: error.message })

@@ -12,9 +12,11 @@ const NewPlayerPage = () => {
 
     const [name, setName] = useState('')
     const [gamerTag, setGamerTag] = useState('')
-    const [avatar, setAvatar] = useState('defaultImg')
+    const [avatar, setAvatar] = useState('jitter')
     const [confirmHide, setConfirmHide] = useState('invisible')
     const [error, setError] = useState(null)
+
+    const avatarArr = ['defaultImg', 'jitter', 'imagined', 'imani', 'snake', 'highwire']
 
 
     const addPlayer = async (event) => {
@@ -43,6 +45,7 @@ const NewPlayerPage = () => {
             console.log('new player added', json)
             setName('')
             setGamerTag('')
+            setAvatar('jitter')
         }
 
     }
@@ -79,7 +82,7 @@ const NewPlayerPage = () => {
                         </input>
                     </label>
                 </div>
-                <AvatarList avatar={avatar} setAvatar={setAvatar} />
+                <AvatarList avatar={avatar} setAvatar={setAvatar} value={avatar} />
                 <button onClick={checkAvatar} >Check Avatar Choice</button>
                 <button className="col-4 btn btn-light margin" onClick={addPlayer} disabled={
                     name === '' || gamerTag === ''}

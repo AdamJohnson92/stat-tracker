@@ -7,7 +7,7 @@ import defaultImg from '../avatars/defaultImg.PNG'
 import snake from '../avatars/snake.PNG'
 import highwire from '../avatars/highwire.PNG'
 
-const AvatarList = ({avatar, setAvatar}) => {
+const AvatarList = ({setAvatar}) => {
 
     const [avatarBorderStyling, setAvatarBorderStyling] = useState('no-border')
 
@@ -21,11 +21,11 @@ const AvatarList = ({avatar, setAvatar}) => {
         for (let i=0; i<avatarArr.length;i++) {
             const avatar = avatarArr[i]
             if (event.target.matches(`#${avatar}`)) {
+                console.log(avatar)
                 setAvatar(avatar)
                 setAvatarBorderStyling('gold-border')
             }
         }
-        console.log(avatar)
         
     }
 
