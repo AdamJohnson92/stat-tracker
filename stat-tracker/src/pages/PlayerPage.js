@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import PageNotFound from "./PageNotFound"
-import defaultImg from '../avatars/default.PNG'
+import defaultImg from '../avatars/defaultImg.PNG'
 
 const PlayerPage = () => {
 

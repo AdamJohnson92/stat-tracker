@@ -4,7 +4,7 @@ import AvatarList from "../components/AvatarsList"
 import jitter from '../avatars/jitter.PNG'
 import imagined from '../avatars/imagined.PNG'
 import imani from '../avatars/imani.PNG'
-import defaultImg from '../avatars/default.PNG'
+import defaultImg from '../avatars/defaultImg.PNG'
 import snake from '../avatars/snake.PNG'
 import highwire from '../avatars/highwire.PNG'
 

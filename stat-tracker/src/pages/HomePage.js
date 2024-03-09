@@ -1,6 +1,4 @@
-// import players from "../seed-data"
 import { Link } from "react-router-dom"
-import defaultImg from '../avatars/default.PNG'
 import { useEffect, useState } from "react"
 
 
@@ -34,7 +32,7 @@ useEffect(() => {
                     // <p key={player._id}>{player.gamerTag}</p>
                     <Link key={player.gamerTag} className="player-block" to={`/${player._id}`}>
                         <h3>{player.gamerTag}</h3>
-                        <img src={defaultImg} className="avatar-img"></img>
+                        <img src={require(`../avatars/${player.avatar}.PNG`)} className="avatar-img"></img>
                         <p>a.k.a. {player.name}</p>
                     </Link>
 
