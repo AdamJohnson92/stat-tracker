@@ -83,7 +83,6 @@ const NewPlayerPage = () => {
                     </label>
                 </div>
                 <AvatarList avatar={avatar} setAvatar={setAvatar} value={avatar} />
-                <button onClick={checkAvatar} >Check Avatar Choice</button>
                 <button className="col-4 btn btn-light margin" onClick={addPlayer} disabled={
                     name === '' || gamerTag === ''}
                 >Submit Player</button>

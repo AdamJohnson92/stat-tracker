@@ -9,6 +9,7 @@ const StatsFormPage = () => {
     const [accuracy, setAccuracy] = useState('')
     const [hits, setHits] = useState('')
     const [shots, setShots] = useState('')
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         const fetchPlayers = async () => {
@@ -25,17 +26,41 @@ const StatsFormPage = () => {
 
     }, [])
 
+    useEffect(() => {
+        const shotCalculation = Number(hits) / (Number(accuracy) / 100)
+        setShots(shotCalculation.toFixed())
+    }, [hits, accuracy])
+
     const addStats = async (event) => {
         event.preventDefault()
 
         const game = {eliminations, assists, hits, accuracy, shots}
         console.log(game)
-    
 
-        // console.log(gamer)
-        // console.log(`elims: ${eliminations}`)
-        // console.log(`assists: ${assists}`)
-        // console.log(`accuracy: ${accuracy}%`)
+        const response = await fetch('/api/player-routes/games', {
+            method: 'POST',
+            body: JSON.stringify(game),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        const json = await response.json()
+
+        if (!response.ok) {
+            setError(json.error)
+        }
+        if (response.ok) {
+            console.log(json)
+            setError(null)
+            window.alert(`This game has been added to ${gamer}'s data.`)
+            console.log('new player added', json)
+            setGamer('Select a Gamer')
+            setEliminations('')
+            setAssists('')
+            setAccuracy('')
+            setHits('')
+        }
 
         for (let i = 0; i < players.length; i++) {
             const player = players[i]
@@ -120,7 +145,7 @@ const StatsFormPage = () => {
                                 </input>
                             </label>
                         </div>
-                        {(accuracy !== '' && hits !=='') ? <p>Calculated Shots Fired: {Number(hits) / (Number(accuracy) / 100)}</p> : <></>}
+                        {(accuracy !== '' && hits !=='') ? <p>Calculated Shots Fired: {shots}</p> : <></>}
 
                         <button type='button' className="col-4 btn btn-light margin" onClick={addStats} disabled={
                             eliminations === '' || assists === '' || accuracy === '' || hits === '' || gamer === 'Select a Gamer' || gamer === ''}
