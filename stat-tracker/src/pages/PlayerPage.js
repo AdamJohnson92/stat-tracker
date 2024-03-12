@@ -24,7 +24,6 @@ const PlayerPage = () => {
             const json = await response.json()
 
             if (response.ok) {
-                console.log(json)
                 setThisPlayer(json)
             }
 
@@ -42,7 +41,6 @@ const PlayerPage = () => {
     let accuracyTotal = 0;
 
     const averages = () => {
-        console.log(thisPlayer.games)
         for (let i = 0; i < thisPlayer.games.length; i++) {
             const game = thisPlayer.games[i]
             elimTotal += game.eliminations
@@ -51,7 +49,6 @@ const PlayerPage = () => {
             hitsTotal += game.hits
         }
 
-        console.log(shotsTotal)
         setETotal(elimTotal)
         setEAverage(elimTotal / thisPlayer.games.length)
         setAssTotal(assistTotal)

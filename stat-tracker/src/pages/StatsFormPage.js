@@ -59,7 +59,7 @@ const StatsFormPage = () => {
             console.log(json)
             setError(null)
             window.alert(`This game has been added to this gamer's data.`)
-            console.log('new player added', json)
+            console.log('New game added', json)
             setPlayerId('Select a Gamer')
             setEliminations('')
             setAssists('')
