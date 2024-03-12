@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 const StatsFormPage = () => {
 
     const [players, setPlayers] = useState(null)
-    const [gamer, setGamer] = useState('')
+    const [playerId, setPlayerId] = useState('')
     const [eliminations, setEliminations] = useState('')
     const [assists, setAssists] = useState('')
     const [accuracy, setAccuracy] = useState('')
@@ -31,13 +31,18 @@ const StatsFormPage = () => {
         setShots(shotCalculation.toFixed())
     }, [hits, accuracy])
 
+
+    useEffect(() => {
+        console.log(playerId)
+    }, [playerId])
+
     const addStats = async (event) => {
         event.preventDefault()
 
-        const game = {eliminations, assists, hits, accuracy, shots}
+        const game = {playerId, eliminations, assists, hits, accuracy, shots}
         console.log(game)
 
-        const response = await fetch('/api/player-routes/games', {
+        const response = await fetch(`/api/player-routes/${playerId}/games`, {
             method: 'POST',
             body: JSON.stringify(game),
             headers: {
@@ -53,38 +58,15 @@ const StatsFormPage = () => {
         if (response.ok) {
             console.log(json)
             setError(null)
-            window.alert(`This game has been added to ${gamer}'s data.`)
+            window.alert(`This game has been added to this gamer's data.`)
             console.log('new player added', json)
-            setGamer('Select a Gamer')
+            setPlayerId('Select a Gamer')
             setEliminations('')
             setAssists('')
             setAccuracy('')
             setHits('')
         }
 
-        for (let i = 0; i < players.length; i++) {
-            const player = players[i]
-            if (eliminations === '' || assists === '' || accuracy === '' || hits === '') {
-                window.alert('All fields must be filled')
-            }
-            if (player.gamerTag === gamer) {
-                player.games.push(
-                    {
-                        id: player.games.length + 1,
-                        eliminations: Number(eliminations),
-                        assists: Number(assists),
-                        hits: Number(hits),
-                        shots: Number(hits) / (Number(accuracy) / 100),
-                        accuracy: Number(accuracy)
-                    }
-                )
-                setGamer('Select a Gamer')
-                setEliminations('')
-                setAssists('')
-                setAccuracy('')
-                setHits('')
-            }
-        }
     }
 
 
@@ -96,10 +78,10 @@ const StatsFormPage = () => {
                 <>
                     <form className="padding-top column container">
                         <div className="form-group">
-                            <select placeholder='Select a Gamer' value={gamer} onChange={(e) => setGamer(e.target.value)}>
+                            <select placeholder='Select a Gamer' value={playerId} onChange={(e) => setPlayerId(e.target.value)}>
                                 <option style={{ color: 'grey' }}>Select a Gamer</option>
                                 {players && players.map(player => (
-                                    <option key={player.gamerTag} className="player-block" to={`/${player.gamerTag}`}>
+                                    <option key={player.gamerTag} className="player-block" value={player._id} to={`/${player._id}`}>
                                         {player.gamerTag}
                                     </option>
                                 ))}
@@ -148,14 +130,13 @@ const StatsFormPage = () => {
                         {(accuracy !== '' && hits !=='') ? <p>Calculated Shots Fired: {shots}</p> : <></>}
 
                         <button type='button' className="col-4 btn btn-light margin" onClick={addStats} disabled={
-                            eliminations === '' || assists === '' || accuracy === '' || hits === '' || gamer === 'Select a Gamer' || gamer === ''}
+                            eliminations === '' || assists === '' || accuracy === '' || hits === '' || playerId === 'Select a Gamer' || playerId === ''}
                         >Submit Stats</button>
                     </form>
+                    {error && <div>{error}</div>}
                 </>
             )}
-            
         </>
-
     )
 }
 

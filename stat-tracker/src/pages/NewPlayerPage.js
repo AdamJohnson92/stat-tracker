@@ -37,6 +37,7 @@ const NewPlayerPage = () => {
 
         if (!response.ok) {
             setError(json.error)
+            console.log(json.error)
         }
         if (response.ok) {
             console.log(json)
