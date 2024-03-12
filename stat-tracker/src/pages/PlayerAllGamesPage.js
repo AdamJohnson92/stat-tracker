@@ -30,9 +30,10 @@ const PlayerAllGamesPage = () => {
                 <>
                     <Link to={`/${thisPlayer._id}`}>
                         <h2 className="padding-top">{thisPlayer.gamerTag}</h2>
-                        <img src={thisPlayer.avatarSrc} className="avatar-img" />
-                        <p>Total Games: {thisPlayer.games.length}</p>
+                        <img src={require(`../avatars/${thisPlayer.avatar}.PNG`)} className="avatar-img" />
+
                     </Link>
+                    <p>Total Games: {thisPlayer.games.length}</p>
 
                     <div className="body-content">
                         <h3 className="padding-top">All Games</h3>
