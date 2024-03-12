@@ -21,6 +21,25 @@ const Schema = mongoose.Schema
 //     }
 // }, { timestamps: true })
 
+const gameSchema = new Schema({
+    eliminations: {
+        type: Number,
+        required: true
+    },
+    assists: {
+        type: Number,
+        required: true
+    },
+    hits: {
+        type: Number,
+        required: true
+    },
+    accuracy: {
+        type: Number,
+        required: true
+    }
+}, { timestamps: true })
+
 const playerSchema = new Schema({
     name: {
         type: String,
@@ -34,13 +53,7 @@ const playerSchema = new Schema({
         type: String,
         required: true
     },
-    games: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Game'
-
-        }
-    ]
+    games: [ gameSchema ]
 }, { timestamps: true })
 
 const gameData = [
@@ -68,3 +81,17 @@ const Player = mongoose.model('Player', playerSchema)
 //     .catch(err => console.error(err))
 
 export default Player
+
+// {
+//     "name": "Test",
+//     "gamerTag": "TestGamer",
+//     "avatar": "highwire"
+// }
+
+// {
+//     "playerId": "65ebd5565c094592e20e5c0e",
+//     "eliminations": 6,
+//     "assists": 4,
+//     "hits": 100,
+//     "accuracy": 80
+// }

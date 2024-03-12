@@ -84,8 +84,17 @@ const createGame = async (req, res) => {
         const game = await Game.create(req.body)
         const player = await Player.findOneAndUpdate(
             { _id: req.body.playerId },
-            {$addToSet: {games: game._id}},
-            {new: true})
+            {
+                $addToSet: {
+                    games: {
+                        eliminations: game.eliminations,
+                        assists: game.assists,
+                        hits: game.hits,
+                        accuracy: game.accuracy
+                    }
+                }
+            },
+            { new: true })
         res.status(200).json(game)
     } catch (error) {
         res.status(400).json({ error: error.message })
