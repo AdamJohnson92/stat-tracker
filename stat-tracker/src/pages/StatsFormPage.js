@@ -8,6 +8,7 @@ const StatsFormPage = () => {
     const [assists, setAssists] = useState('')
     const [accuracy, setAccuracy] = useState('')
     const [hits, setHits] = useState('')
+    const [shots, setShots] = useState('')
 
     useEffect(() => {
         const fetchPlayers = async () => {
@@ -24,9 +25,12 @@ const StatsFormPage = () => {
 
     }, [])
 
-    function addStats(event) {
-
+    const addStats = async (event) => {
         event.preventDefault()
+
+        const game = {eliminations, assists, hits, accuracy, shots}
+        console.log(game)
+    
 
         // console.log(gamer)
         // console.log(`elims: ${eliminations}`)
@@ -116,6 +120,7 @@ const StatsFormPage = () => {
                                 </input>
                             </label>
                         </div>
+                        {(accuracy !== '' && hits !=='') ? <p>Calculated Shots Fired: {Number(hits) / (Number(accuracy) / 100)}</p> : <></>}
 
                         <button type='button' className="col-4 btn btn-light margin" onClick={addStats} disabled={
                             eliminations === '' || assists === '' || accuracy === '' || hits === '' || gamer === 'Select a Gamer' || gamer === ''}
