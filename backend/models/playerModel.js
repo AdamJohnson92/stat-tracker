@@ -37,6 +37,10 @@ const gameSchema = new Schema({
     accuracy: {
         type: Number,
         required: true
+    },
+    shots: {
+        type: Number,
+        required: true
     }
 }, { timestamps: true })
 
@@ -93,5 +97,6 @@ export default Player
 //     "eliminations": 6,
 //     "assists": 4,
 //     "hits": 100,
-//     "accuracy": 80
+//     "accuracy": 80,
+//     "shots": 125
 // }

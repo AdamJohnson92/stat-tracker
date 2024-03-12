@@ -18,6 +18,10 @@ const gameSchema = new Schema({
     accuracy: {
         type: Number,
         required: true
+    },
+    shots: {
+        type: Number,
+        required: true
     }
 }, { timestamps: true })
 

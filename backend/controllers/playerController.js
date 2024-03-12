@@ -87,10 +87,12 @@ const createGame = async (req, res) => {
             {
                 $addToSet: {
                     games: {
+                        // _id: game._id, 
                         eliminations: game.eliminations,
                         assists: game.assists,
                         hits: game.hits,
-                        accuracy: game.accuracy
+                        accuracy: game.accuracy,
+                        shots: game.shots
                     }
                 }
             },

@@ -50,6 +50,8 @@ const PlayerPage = () => {
             shotsTotal += game.shots
             hitsTotal += game.hits
         }
+
+        console.log(shotsTotal)
         setETotal(elimTotal)
         setEAverage(elimTotal / thisPlayer.games.length)
         setAssTotal(assistTotal)
@@ -98,11 +100,11 @@ const PlayerPage = () => {
                                 <h3>{thisPlayer.gamerTag} doesn't have any games!</h3> : (
                                     <>
                                         <h3 className="padding-top">Most Recent Game</h3>
-                                        <p> Eliminations: {thisPlayer.games[0].eliminations}</p>
-                                        <p> Assists: {thisPlayer.games[0].assists}</p>
-                                        <p> Shots Fired: {(thisPlayer.games[0].hits / (thisPlayer.games[0].accuracy / 100)).toFixed()}</p>
-                                        <p> Shots Hit: {thisPlayer.games[0].hits}</p>
-                                        <p> Accuracy: {thisPlayer.games[0].accuracy}%</p>
+                                        <p> Eliminations: {thisPlayer.games[thisPlayer.games.length - 1].eliminations}</p>
+                                        <p> Assists: {thisPlayer.games[thisPlayer.games.length - 1].assists}</p>
+                                        <p> Shots Fired: {(thisPlayer.games[thisPlayer.games.length - 1].hits / (thisPlayer.games[thisPlayer.games.length - 1].accuracy / 100)).toFixed()}</p>
+                                        <p> Shots Hit: {thisPlayer.games[thisPlayer.games.length - 1].hits}</p>
+                                        <p> Accuracy: {thisPlayer.games[thisPlayer.games.length - 1].accuracy}%</p>
                                         <div className="padding-bottom">
                                             <h3 className="padding-top">Lifetime Stats</h3>
                                             <p>Lifetime Eliminations: {eTotal}</p>
@@ -111,7 +113,7 @@ const PlayerPage = () => {
                                             <p>Average Assists Per Game: {assAverage.toFixed(1)}</p>
                                             <p>Total Shots Fired: {shotTotal}</p>
                                             <p>Total Shots Hit: {hitTotal}</p>
-                                            <p>Total Accuracy: {hitTotal/shotTotal*100}%</p>
+                                            <p>Total Accuracy: {(hitTotal/shotTotal*100).toFixed(2)}%</p>
                                             {/* <p className="padding-top"> Average Eliminations Per Game: {eAverage.toFixed(2)}</p>
                                                  <p> Average Assists Per Game: {assAverage.toFixed(2)}</p>
                                                  <p> Total Lifetime Shots: {shTotal.toFixed()}</p>
