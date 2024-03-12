@@ -64,9 +64,11 @@ const updatePlayer = async (req, res) => {
         return res.status(404).json({ error: 'No player found with that id.' })
     }
 
-    const player = await Player.findOneAndUpdate({ _id: id }, {
-        ...req.body
-    })
+    const player = await Player.findOneAndUpdate(
+        { _id: id }, 
+        {$addToSet: {responses: req.body}},
+        { runValidators: true, new: true }
+        )
 
     if (!player) {
         return res.status(404).json({ error: 'That player doesn\'t exist.' })
@@ -76,6 +78,17 @@ const updatePlayer = async (req, res) => {
 
 }
 
+const createGame = async (req, res) => {
+    const { eliminations, assists, hits, accuracy } = req.body
+
+    try {
+        const game = await Player.findOneAndUpdate({ eliminations, assists, hits, accuracy })
+        res.status(200).json(game)
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+}
+
 export {
     getPlayers,
     getOnePlayer,
@@ -83,3 +96,11 @@ export {
     deletePlayer,
     updatePlayer
 }
+
+// {
+//     "eliminations": 5,
+//     "assists": 4,
+//     "hits": 100,
+//     "accuracy": 80
+
+// }

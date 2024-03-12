@@ -2,28 +2,24 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema
 
-const gameSchema = new Schema({
-    eliminations: {
-        type: Number,
-        required: true
-    },
-    assists: {
-        type: Number,
-        required: true
-    },
-    hits: {
-        type: Number,
-        required: true
-    },
-    shots: {
-        type: Number,
-        required: true
-    },
-    accuracy: {
-        type: Number,
-        required: true
-    }
-}, { timestamps: true })
+// const gameSchema = new Schema({
+//     eliminations: {
+//         type: Number,
+//         required: true
+//     },
+//     assists: {
+//         type: Number,
+//         required: true
+//     },
+//     hits: {
+//         type: Number,
+//         required: true
+//     },
+//     accuracy: {
+//         type: Number,
+//         required: true
+//     }
+// }, { timestamps: true })
 
 const playerSchema = new Schema({
     name: {
@@ -38,7 +34,13 @@ const playerSchema = new Schema({
         type: String,
         required: true
     },
-    games: [gameSchema]
+    games: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Game'
+
+        }
+    ]
 }, { timestamps: true })
 
 const gameData = [
