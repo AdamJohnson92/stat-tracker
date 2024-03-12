@@ -65,12 +65,6 @@ const PlayerPage = () => {
 
     }, [thisPlayer])
 
-    // const eAverage = averages().elimAverage
-    // const assAverage = averages().assistAverage
-    // const accAverage = averages().accuracyAverage
-    // const hTotal = averages().hitsTotal
-    // const shTotal = averages().shotTotal
-
     const deletePlayer = async () => {
         console.log(thisPlayer)
         const response = await fetch(`/api/player-routes/${thisPlayer._id}`, {
@@ -110,19 +104,14 @@ const PlayerPage = () => {
                                             <p>Average Assists Per Game: {assAverage.toFixed(1)}</p>
                                             <p>Total Shots Fired: {shotTotal}</p>
                                             <p>Total Shots Hit: {hitTotal}</p>
-                                            <p>Total Accuracy: {(hitTotal/shotTotal*100).toFixed(2)}%</p>
-                                            {/* <p className="padding-top"> Average Eliminations Per Game: {eAverage.toFixed(2)}</p>
-                                                 <p> Average Assists Per Game: {assAverage.toFixed(2)}</p>
-                                                 <p> Total Lifetime Shots: {shTotal.toFixed()}</p>
-                                                 <p> Total Lifetime Hits: {hTotal}</p>
-                                                 <p> Lifetime Accuracy: {((hTotal / shTotal) * 100).toFixed()}%</p> */}
+                                            <p>Total Accuracy: {(hitTotal / shotTotal * 100).toFixed(2)}%</p>
                                         </div>
 
-                                        {/* <div className="container">
-                                                        <Link to={`/${thisPlayer.gamerTag}/all-games`}>
-                                                        <button type='button' className="btn btn-light">View All of {thisPlayer.gamerTag}'s Games</button>
-                                                        </Link>
-                                                    </div> */}
+                                        <div className="container">
+                                            <Link to={`/${thisPlayer._id}/all-games`}>
+                                                <button type='button' className="btn btn-light">View All of {thisPlayer.gamerTag}'s Games</button>
+                                            </Link>
+                                        </div>
                                     </>
                                 )}
                         </div>
