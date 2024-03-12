@@ -1,20 +1,15 @@
 // import players from "../seed-data"
 import { useState } from "react"
 import AvatarList from "../components/AvatarsList"
-import jitter from '../avatars/jitter.PNG'
-import imagined from '../avatars/imagined.PNG'
-import imani from '../avatars/imani.PNG'
-import defaultImg from '../avatars/defaultImg.PNG'
-import snake from '../avatars/snake.PNG'
-import highwire from '../avatars/highwire.PNG'
 
 const NewPlayerPage = () => {
 
     const [name, setName] = useState('')
     const [gamerTag, setGamerTag] = useState('')
-    const [avatar, setAvatar] = useState('jitter')
+    const [avatar, setAvatar] = useState('defaultImg')
     const [error, setError] = useState(null)
     const [confirmMssg, setConfirmMssg] = useState('')
+
 
 
     const addPlayer = async (event) => {
