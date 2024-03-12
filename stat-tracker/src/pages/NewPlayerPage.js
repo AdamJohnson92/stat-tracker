@@ -13,10 +13,8 @@ const NewPlayerPage = () => {
     const [name, setName] = useState('')
     const [gamerTag, setGamerTag] = useState('')
     const [avatar, setAvatar] = useState('jitter')
-    const [confirmHide, setConfirmHide] = useState('invisible')
     const [error, setError] = useState(null)
-
-    const avatarArr = ['defaultImg', 'jitter', 'imagined', 'imani', 'snake', 'highwire']
+    const [confirmMssg, setConfirmMssg] = useState('')
 
 
     const addPlayer = async (event) => {
@@ -42,24 +40,13 @@ const NewPlayerPage = () => {
         if (response.ok) {
             console.log(json)
             setError(null)
-            window.alert(`${gamerTag} has been added`)
+            setConfirmMssg(`${gamerTag} has been added!`)
             console.log('new player added', json)
             setName('')
             setGamerTag('')
-            setAvatar('jitter')
+            setAvatar('defaultImg')
         }
-
     }
-
-    const checkAvatar = (event) => {
-        event.preventDefault()
-
-        console.log(avatar)
-        console.log()
-    }
-
-
-
 
     return (
         <div className="body-content container">
@@ -84,11 +71,14 @@ const NewPlayerPage = () => {
                     </label>
                 </div>
                 <AvatarList avatar={avatar} setAvatar={setAvatar} value={avatar} />
+                <h5>{confirmMssg}</h5>
                 <button className="col-4 btn btn-light margin" onClick={addPlayer} disabled={
                     name === '' || gamerTag === ''}
                 >Submit Player</button>
+                
+
             </form>
-            {error && <div>{error}</div>}
+            {/* {error && <div>{error}</div>} */}
         </div>
 
     )
