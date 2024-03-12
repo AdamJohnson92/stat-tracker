@@ -4,7 +4,8 @@ import {
     getOnePlayer, 
     createPlayer,
     deletePlayer,
-    updatePlayer, 
+    updatePlayer,
+    createGame, 
 } from "../controllers/playerController.js";
 
 const router = express.Router()
@@ -18,6 +19,8 @@ router.post('/', createPlayer)
 router.delete('/:id', deletePlayer)
 
 router.patch('/:id', updatePlayer)
+
+router.post('/:id/games', createGame)
 
 
 export default router

@@ -1,4 +1,5 @@
 import Player from "../models/playerModel.js";
+import Game from "../models/gameModel.js"
 import mongoose from "mongoose";
 
 //get all players
@@ -65,10 +66,10 @@ const updatePlayer = async (req, res) => {
     }
 
     const player = await Player.findOneAndUpdate(
-        { _id: id }, 
-        {$addToSet: {responses: req.body}},
+        { _id: id },
+        { $addToSet: { responses: req.body } },
         { runValidators: true, new: true }
-        )
+    )
 
     if (!player) {
         return res.status(404).json({ error: 'That player doesn\'t exist.' })
@@ -79,10 +80,12 @@ const updatePlayer = async (req, res) => {
 }
 
 const createGame = async (req, res) => {
-    const { eliminations, assists, hits, accuracy } = req.body
-
     try {
-        const game = await Player.findOneAndUpdate({ eliminations, assists, hits, accuracy })
+        const game = await Game.create(req.body)
+        const player = await Player.findOneAndUpdate(
+            { _id: req.body.playerId },
+            {$addToSet: {games: game._id}},
+            {new: true})
         res.status(200).json(game)
     } catch (error) {
         res.status(400).json({ error: error.message })
@@ -94,7 +97,8 @@ export {
     getOnePlayer,
     createPlayer,
     deletePlayer,
-    updatePlayer
+    updatePlayer,
+    createGame
 }
 
 // {
