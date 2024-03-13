@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react"
+import StatsFormComponent from "../components/StatsForm"
 
 const StatsFormPage = () => {
 
     const [players, setPlayers] = useState(null)
     const [playerId, setPlayerId] = useState('')
+    const [gamerTag, setGamerTag] = useState('')
     const [eliminations, setEliminations] = useState('')
     const [assists, setAssists] = useState('')
     const [accuracy, setAccuracy] = useState('')
     const [hits, setHits] = useState('')
     const [shots, setShots] = useState('')
     const [error, setError] = useState(null)
+    const [confirmMssg, setConfirmMssg] = useState('')
 
     useEffect(() => {
         const fetchPlayers = async () => {
@@ -39,7 +42,7 @@ const StatsFormPage = () => {
     const addStats = async (event) => {
         event.preventDefault()
 
-        const game = {playerId, eliminations, assists, hits, accuracy, shots}
+        const game = { playerId, eliminations, assists, hits, accuracy, shots }
         console.log(game)
 
         const response = await fetch(`/api/player-routes/${playerId}/games`, {
@@ -58,7 +61,7 @@ const StatsFormPage = () => {
         if (response.ok) {
             console.log(json)
             setError(null)
-            window.alert(`This game has been added to this gamer's data.`)
+            setConfirmMssg(`The game statistics have been added to the player!`)
             console.log('New game added', json)
             setPlayerId('Select a Gamer')
             setEliminations('')
@@ -81,13 +84,16 @@ const StatsFormPage = () => {
                             <select placeholder='Select a Gamer' value={playerId} onChange={(e) => setPlayerId(e.target.value)}>
                                 <option style={{ color: 'grey' }}>Select a Gamer</option>
                                 {players && players.map(player => (
-                                    <option key={player.gamerTag} className="player-block" value={player._id} to={`/${player._id}`}>
-                                        {player.gamerTag}
+                                    <option key={player.gamerTag} className="player-block" value={player._id} to={`/${player._id}`} >
+                                        {player.gamerTag} 
                                     </option>
                                 ))}
                             </select>
                         </div>
-                        <div className="form-group">
+                        <StatsFormComponent 
+                        eliminations={eliminations} setEliminations={setEliminations} assists={assists} setAssists={setAssists}accuracy={accuracy} setAccuracy={setAccuracy} shots={shots} setShots={setShots} hits={hits} setHits={setHits} playerId={playerId}
+                        />
+                        {/* <div className="form-group">
                             <label>
                                 <input
                                     type='number'
@@ -127,11 +133,13 @@ const StatsFormPage = () => {
                                 </input>
                             </label>
                         </div>
-                        {(accuracy !== '' && hits !=='') ? <p>Calculated Shots Fired: {shots}</p> : <></>}
+                        {(accuracy !== '' && hits !== '') ? <p>Calculated Shots Fired: {shots}</p> : <></>}
+
+                        <h5>{confirmMssg}</h5>
 
                         <button type='button' className="col-4 btn btn-light margin" onClick={addStats} disabled={
                             eliminations === '' || assists === '' || accuracy === '' || hits === '' || playerId === 'Select a Gamer' || playerId === ''}
-                        >Submit Stats</button>
+                        >Submit Stats</button> */}
                     </form>
                     {error && <div>{error}</div>}
                 </>
