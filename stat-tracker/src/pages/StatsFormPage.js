@@ -91,7 +91,7 @@ const StatsFormPage = () => {
                             </select>
                         </div>
                         <StatsFormComponent 
-                        eliminations={eliminations} setEliminations={setEliminations} assists={assists} setAssists={setAssists}accuracy={accuracy} setAccuracy={setAccuracy} shots={shots} setShots={setShots} hits={hits} setHits={setHits} playerId={playerId}
+                        eliminations={eliminations} setEliminations={setEliminations} assists={assists} setAssists={setAssists}accuracy={accuracy} setAccuracy={setAccuracy} shots={shots} setShots={setShots} hits={hits} setHits={setHits} playerId={playerId} setPlayerId={setPlayerId}
                         />
                         {/* <div className="form-group">
                             <label>

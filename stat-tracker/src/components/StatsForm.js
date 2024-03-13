@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react"
 
-const StatsFormComponent = ({eliminations, setEliminations, assists, setAssists, accuracy, setAccuracy, hits, setHits, shots, setShots, playerId}) => {
+const StatsFormComponent = ({eliminations, setEliminations, assists, setAssists, accuracy, setAccuracy, hits, setHits, shots, setShots, playerId, setPlayerId}) => {
 
     const [players, setPlayers] = useState(null)
-    // const [playerId, setPlayerId] = useState('')
     const [gamerTag, setGamerTag] = useState('')
     const [error, setError] = useState(null)
     const [confirmMssg, setConfirmMssg] = useState('')
@@ -38,7 +37,7 @@ const StatsFormComponent = ({eliminations, setEliminations, assists, setAssists,
             setError(null)
             setConfirmMssg(`The game statistics have been added to the player!`)
             console.log('New game added', json)
-            // setPlayerId('Select a Gamer')
+            setPlayerId('Select a Gamer')
             setEliminations('')
             setAssists('')
             setAccuracy('')
