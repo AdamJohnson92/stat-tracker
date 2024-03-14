@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react"
 
-const StatsFormComponent = ({eliminations, setEliminations, assists, setAssists, accuracy, setAccuracy, hits, setHits, shots, setShots, playerId, setPlayerId}) => {
+const StatsFormComponent = ({playerId, setPlayerId}) => {
 
-    const [players, setPlayers] = useState(null)
-    const [gamerTag, setGamerTag] = useState('')
+    const [eliminations, setEliminations] = useState('')
+    const [assists, setAssists] = useState('')
+    const [accuracy, setAccuracy] = useState('')
+    const [hits, setHits] = useState('')
+    const [shots, setShots] = useState('')
     const [error, setError] = useState(null)
     const [confirmMssg, setConfirmMssg] = useState('')
 
