@@ -58,6 +58,9 @@ const StatsFormComponent = ({playerId, setPlayerId}) => {
                         type='number'
                         placeholder="Eliminations"
                         value={eliminations}
+                        min={0}
+                        max={99}
+                        className="form-input"
                         onChange={e => setEliminations(e.target.value)}>
                     </input>
                 </label>
@@ -68,6 +71,9 @@ const StatsFormComponent = ({playerId, setPlayerId}) => {
                         type='number'
                         placeholder="Assists"
                         value={assists}
+                        min={0}
+                        max={99}
+                        className="form-input"
                         onChange={e => setAssists(e.target.value)}>
                     </input>
                 </label>
@@ -78,6 +84,9 @@ const StatsFormComponent = ({playerId, setPlayerId}) => {
                         type='number'
                         placeholder="Accuracy"
                         value={accuracy}
+                        min={0}
+                        max={100}
+                        className="form-input"
                         onChange={e => setAccuracy(e.target.value)}>
                     </input>
                 </label>
@@ -88,6 +97,8 @@ const StatsFormComponent = ({playerId, setPlayerId}) => {
                         type='number'
                         placeholder="Hits"
                         value={hits}
+                        min={0}
+                        className="form-input"
                         onChange={e => setHits(e.target.value)}>
                     </input>
                 </label>

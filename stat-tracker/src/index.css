@@ -146,6 +146,10 @@ a:-webkit-any-link {
   margin: 10px;
 }
 
+.form-input {
+  width: 180px;
+}
+
 footer {
   width: 100%;
   position: absolute;
