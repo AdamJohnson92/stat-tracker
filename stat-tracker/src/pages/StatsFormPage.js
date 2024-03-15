@@ -5,11 +5,6 @@ const StatsFormPage = () => {
 
     const [players, setPlayers] = useState(null)
     const [playerId, setPlayerId] = useState('')
-    // const [eliminations, setEliminations] = useState('')
-    // const [assists, setAssists] = useState('')
-    // const [accuracy, setAccuracy] = useState('')
-    // const [hits, setHits] = useState('')
-    // const [shots, setShots] = useState('')
     const [error, setError] = useState(null)
 
     useEffect(() => {

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
+import StatsFormComponent from "../components/StatsForm"
 import PageNotFound from "./PageNotFound"
 import defaultImg from '../avatars/defaultImg.PNG'
 
@@ -88,33 +89,37 @@ const PlayerPage = () => {
                     <div>
                         <div className="body-content container">
                             {(thisPlayer.games.length === 0) ?
-                                <h3>{thisPlayer.gamerTag} doesn't have any games!</h3> : (
-                                    <>
-                                        <h3 className="padding-top">Most Recent Game</h3>
-                                        <p> Eliminations: {thisPlayer.games[thisPlayer.games.length - 1].eliminations}</p>
-                                        <p> Assists: {thisPlayer.games[thisPlayer.games.length - 1].assists}</p>
-                                        <p> Shots Fired: {(thisPlayer.games[thisPlayer.games.length - 1].hits / (thisPlayer.games[thisPlayer.games.length - 1].accuracy / 100)).toFixed()}</p>
-                                        <p> Shots Hit: {thisPlayer.games[thisPlayer.games.length - 1].hits}</p>
-                                        <p> Accuracy: {thisPlayer.games[thisPlayer.games.length - 1].accuracy}%</p>
-                                        <div className="padding-bottom">
-                                            <h3 className="padding-top">Lifetime Stats</h3>
-                                            <p>Lifetime Eliminations: {eTotal}</p>
-                                            <p>Average Eliminations Per Game: {eAverage.toFixed(1)}</p>
-                                            <p>Lifetime Assists: {assTotal}</p>
-                                            <p>Average Assists Per Game: {assAverage.toFixed(1)}</p>
-                                            <p>Total Shots Fired: {shotTotal}</p>
-                                            <p>Total Shots Hit: {hitTotal}</p>
-                                            <p>Total Accuracy: {(hitTotal / shotTotal * 100).toFixed(2)}%</p>
-                                        </div>
+                                <h3>{thisPlayer.gamerTag} doesn't have any games!</h3> : (<>
+                                    <h3 className="padding-top">Most Recent Game</h3>
+                                    <p> Eliminations: {thisPlayer.games[thisPlayer.games.length - 1].eliminations}</p>
+                                    <p> Assists: {thisPlayer.games[thisPlayer.games.length - 1].assists}</p>
+                                    <p> Shots Fired: {(thisPlayer.games[thisPlayer.games.length - 1].hits / (thisPlayer.games[thisPlayer.games.length - 1].accuracy / 100)).toFixed()}</p>
+                                    <p> Shots Hit: {thisPlayer.games[thisPlayer.games.length - 1].hits}</p>
+                                    <p> Accuracy: {thisPlayer.games[thisPlayer.games.length - 1].accuracy}%</p>
+                                    <div className="padding-bottom">
+                                        <h3 className="padding-top">Lifetime Stats</h3>
+                                        <p>Lifetime Eliminations: {eTotal}</p>
+                                        <p>Average Eliminations Per Game: {eAverage.toFixed(1)}</p>
+                                        <p>Lifetime Assists: {assTotal}</p>
+                                        <p>Average Assists Per Game: {assAverage.toFixed(1)}</p>
+                                        <p>Total Shots Fired: {shotTotal}</p>
+                                        <p>Total Shots Hit: {hitTotal}</p>
+                                        <p>Total Accuracy: {(hitTotal / shotTotal * 100).toFixed(2)}%</p>
+                                    </div>
 
-                                        <div className="container">
-                                            <Link to={`/${thisPlayer._id}/all-games`}>
-                                                <button type='button' className="btn btn-light">View All of {thisPlayer.gamerTag}'s Games</button>
-                                            </Link>
-                                        </div>
-                                    </>
-                                )}
+                                    <div className="container">
+                                        <Link to={`/${thisPlayer._id}/all-games`}>
+                                            <button type='button' className="btn btn-light">View All of {thisPlayer.gamerTag}'s Games</button>
+                                        </Link>
+                                    </div>
+                                </>)}
+                                {/* <h4 className="padding-top">Add a New Game for {thisPlayer.gamerTag}</h4>
+                                <form>
+                                    <StatsFormComponent playerId={thisPlayer} setPlayerId={setThisPlayer}/>
+                                </form> */}
                         </div>
+                        
+
                         <Link to='/deleted-player'>
                             <button type='button' className="btn btn-danger margin" onClick={deletePlayer}>Delete </button>
                         </Link>
@@ -122,7 +127,7 @@ const PlayerPage = () => {
                 </>
             )}
 
-            
+
         </div>
     )
 }

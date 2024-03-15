@@ -51,7 +51,7 @@ const StatsFormComponent = ({playerId, setPlayerId}) => {
 
 
     return (
-        <>
+        <div className="body-content">
             <div className="form-group">
                 <label>
                     <input
@@ -100,7 +100,7 @@ const StatsFormComponent = ({playerId, setPlayerId}) => {
                 eliminations === '' || assists === '' || accuracy === '' || hits === '' || playerId === 'Select a Gamer' || playerId === ''}
             >Submit Stats</button>
             {error && <div>{error}</div>}
-        </>
+        </div>
     )
 }
 
