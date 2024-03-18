@@ -60,31 +60,11 @@ const playerSchema = new Schema({
     games: [ gameSchema ]
 }, { timestamps: true })
 
-const gameData = [
-    {
-        eliminations: 5,
-        assists: 2,
-        hits: 60,
-        shots: 200,
-        accuracy: 30
-    }, {
-        eliminations: 6,
-        assists: 3,
-        hits: 60,
-        shots: 200,
-        accuracy: 30
-    }
-]
 
 const Player = mongoose.model('Player', playerSchema)
+const Game = mongoose.model('Game', gameSchema)
 
-
-// Player
-//     .create({name: 'Tav', gamerTag:'TavGames', avatar:'defaultImg', games: gameData})
-//     .then(data => console.log(data))
-//     .catch(err => console.error(err))
-
-export default Player
+export {Player, Game}
 
 // {
 //     "name": "Test",

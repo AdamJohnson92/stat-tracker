@@ -1,5 +1,5 @@
-import Player from "../models/playerModel.js";
-import Game from "../models/gameModel.js"
+import {Player, Game} from "../models/playerModel.js";
+// import Game from "../models/gameModel.js"
 import mongoose from "mongoose";
 
 //get all players
