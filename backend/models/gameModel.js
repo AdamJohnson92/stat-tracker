@@ -2,29 +2,15 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema
 
-const gameSchema = new Schema({
-    eliminations: {
-        type: Number,
-        required: true
-    },
-    assists: {
-        type: Number,
-        required: true
-    },
-    hits: {
-        type: Number,
-        required: true
-    },
-    accuracy: {
-        type: Number,
-        required: true
-    },
-    shots: {
-        type: Number,
-        required: true
-    }
+const multiGameSchema = new Schema({
+    games: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Game'
+        }
+    ]
 }, { timestamps: true })
 
-const Game = mongoose.model('Game', gameSchema)
+const Game = mongoose.model('MultiGame', multiGameSchema)
 
 export default Game

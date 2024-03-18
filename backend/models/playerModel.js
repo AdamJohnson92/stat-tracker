@@ -41,6 +41,9 @@ const gameSchema = new Schema({
     shots: {
         type: Number,
         required: true
+    },
+    date: {
+        type: Date,
     }
 }, { timestamps: true })
 
@@ -60,23 +63,24 @@ const playerSchema = new Schema({
     games: [ gameSchema ]
 }, { timestamps: true })
 
-const gameData = [
-    {
-        eliminations: 5,
-        assists: 2,
-        hits: 60,
-        shots: 200,
-        accuracy: 30
-    }, {
-        eliminations: 6,
-        assists: 3,
-        hits: 60,
-        shots: 200,
-        accuracy: 30
-    }
-]
+// const gameData = [
+//     {
+//         eliminations: 5,
+//         assists: 2,
+//         hits: 60,
+//         shots: 200,
+//         accuracy: 30
+//     }, {
+//         eliminations: 6,
+//         assists: 3,
+//         hits: 60,
+//         shots: 200,
+//         accuracy: 30
+//     }
+// ]
 
 const Player = mongoose.model('Player', playerSchema)
+const Game = mongoose.model('Game', gameSchema)
 
 
 // Player
