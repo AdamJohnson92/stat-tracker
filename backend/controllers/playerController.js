@@ -92,8 +92,7 @@ const createGame = async (req, res) => {
                         assists: game.assists,
                         hits: game.hits,
                         accuracy: game.accuracy,
-                        shots: game.shots,
-                        date: game.date
+                        shots: game.shots
                     }
                 }
             },
