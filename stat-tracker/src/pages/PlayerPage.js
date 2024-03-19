@@ -62,9 +62,24 @@ const PlayerPage = () => {
     useEffect(() => {
         if (thisPlayer) {
             averages()
+            addRecentGame()
         } else { console.log('not yet!') }
 
     }, [thisPlayer])
+
+    //creating an arr of the most recent 10 games, unless there are fewer than 10 games. 
+
+    let recentGamesArr = []
+    let count = 1;
+
+    function addRecentGame () {
+        
+        while (count < 11) {
+            recentGamesArr.push(thisPlayer.games[thisPlayer.games.length-count])
+            count++
+        }
+        console.log(recentGamesArr)
+    }
 
     const deletePlayer = async () => {
         console.log(thisPlayer)

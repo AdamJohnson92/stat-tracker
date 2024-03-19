@@ -2,25 +2,6 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema
 
-// const gameSchema = new Schema({
-//     eliminations: {
-//         type: Number,
-//         required: true
-//     },
-//     assists: {
-//         type: Number,
-//         required: true
-//     },
-//     hits: {
-//         type: Number,
-//         required: true
-//     },
-//     accuracy: {
-//         type: Number,
-//         required: true
-//     }
-// }, { timestamps: true })
-
 const gameSchema = new Schema({
     eliminations: {
         type: Number,
@@ -65,12 +46,6 @@ const Player = mongoose.model('Player', playerSchema)
 const Game = mongoose.model('Game', gameSchema)
 
 export {Player, Game}
-
-// {
-//     "name": "Test",
-//     "gamerTag": "TestGamer",
-//     "avatar": "highwire"
-// }
 
 // {
 //     "playerId": "65ebd5565c094592e20e5c0e",
