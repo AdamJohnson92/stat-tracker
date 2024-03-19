@@ -114,6 +114,10 @@ img {
   border-radius: 100px;
 }
 
+.table-border-radius {
+  border-radius: 20px;
+}
+
 .avatar-selection:hover {
   transform: scale(1.2);
   transition: ease-in .08s;
