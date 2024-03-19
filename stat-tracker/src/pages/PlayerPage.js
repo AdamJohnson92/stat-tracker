@@ -128,11 +128,7 @@ const PlayerPage = () => {
                                         <p>Total Accuracy: <b>{(hitTotal / shotTotal * 100).toFixed(2)}%</b></p>
                                     </div>
 
-                                    <div className="container">
-                                        <Link to={`/${thisPlayer._id}/all-games`}>
-                                            <button type='button' className="btn btn-light">View All of {thisPlayer.gamerTag}'s Games</button>
-                                        </Link>
-                                    </div>
+
                                 </>)}
                             {/* <h4 className="padding-top">Add a New Game for {thisPlayer.gamerTag}</h4>
                                 <form>
@@ -164,10 +160,12 @@ const PlayerPage = () => {
 
                                     ))}
                                 </tbody>
-
-
-
                             </table>
+                            <div className="container">
+                                <Link to={`/${thisPlayer._id}/all-games`}>
+                                    <button type='button' className="btn btn-light">View All of {thisPlayer.gamerTag}'s Games</button>
+                                </Link>
+                            </div>
                         </div>
 
 
