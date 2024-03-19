@@ -14,7 +14,7 @@ const PlayerPage = () => {
     const [assAverage, setAssAverage] = useState(0)
     const [shotTotal, setShotTotal] = useState(0)
     const [hitTotal, setHitTotal] = useState(0)
-    const [recentGames, setRecentGames] = useState([])
+    const [recentGames, setRecentGames] = useState(null)
 
     const params = useParams()
     const { playerId } = params
@@ -134,41 +134,47 @@ const PlayerPage = () => {
                                 <form>
                                     <StatsFormComponent playerId={thisPlayer} setPlayerId={setThisPlayer}/>
                                 </form> */}
-                            <h3 className="padding-top margin">Recent Games</h3>
-                            <table className="table padding-top margin table-border-radius" style={{ borderRadius: '30px', overflow: 'hidden' }}>
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Eliminations</th>
-                                        <th>Assists</th>
-                                        <th>Shots Fired</th>
-                                        <th>Shots Hit</th>
-                                        <th>Accuracy</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {recentGames.map(recentGame => (
-                                        <tr>
-                                            {/* This td cell reformats the 'createdAt' timestamp into a more digestable date format */}
-                                            <td>{recentGame.createdAt[5]}{recentGame.createdAt[6]}/{recentGame.createdAt[8]}{recentGame.createdAt[9]}/{recentGame.createdAt[0]}{recentGame.createdAt[1]}{recentGame.createdAt[2]}{recentGame.createdAt[3]}</td>
-                                            <td>{recentGame.eliminations}</td>
-                                            <td>{recentGame.assists}</td>
-                                            <td>{recentGame.shots}</td>
-                                            <td>{recentGame.hits}</td>
-                                            <td>{recentGame.accuracy}</td>
-                                        </tr>
+                            {recentGames && 
+                            <div>
+                                {recentGames.length === 0 ? <></> : 
+                                <div>
+                                    <h3 className="margin">Recent Games</h3>
+                                    <table className="table padding-top margin table-border-radius" style={{ borderRadius: '30px', overflow: 'hidden' }}>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Eliminations</th>
+                                                <th>Assists</th>
+                                                <th>Shots Fired</th>
+                                                <th>Shots Hit</th>
+                                                <th>Accuracy</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {recentGames.map(recentGame => (
+                                                <tr>
+                                                    {/* This td cell reformats the 'createdAt' timestamp into a more digestable date format */}
+                                                    <td>{recentGame.createdAt[5]}{recentGame.createdAt[6]}/{recentGame.createdAt[8]}{recentGame.createdAt[9]}/{recentGame.createdAt[0]}{recentGame.createdAt[1]}{recentGame.createdAt[2]}{recentGame.createdAt[3]}</td>
+                                                    <td>{recentGame.eliminations}</td>
+                                                    <td>{recentGame.assists}</td>
+                                                    <td>{recentGame.shots}</td>
+                                                    <td>{recentGame.hits}</td>
+                                                    <td>{recentGame.accuracy}</td>
+                                                </tr>
 
-                                    ))}
-                                </tbody>
-                            </table>
-                            <div className="container">
-                                <Link to={`/${thisPlayer._id}/all-games`}>
-                                    <button type='button' className="btn btn-light">View All of {thisPlayer.gamerTag}'s Games</button>
-                                </Link>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                    <div className="container padding-top">
+                                        <Link to={`/${thisPlayer._id}/all-games`}>
+                                            <button type='button' className="btn btn-light">View All of {thisPlayer.gamerTag}'s Games</button>
+                                        </Link>
+                                    </div>
+                                </div>}
                             </div>
+
+                            }
                         </div>
-
-
                         <Link to='/deleted-player'>
                             <button type='button' className="btn btn-danger margin" onClick={deletePlayer}>Delete </button>
                         </Link>
