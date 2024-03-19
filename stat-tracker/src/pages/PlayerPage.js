@@ -73,10 +73,14 @@ const PlayerPage = () => {
     let count = 1;
 
     function addRecentGame () {
-        
+         
         while (count < 11) {
-            recentGamesArr.push(thisPlayer.games[thisPlayer.games.length-count])
+            if(count > thisPlayer.games.length) {
+                count = 11
+            } else {
+                recentGamesArr.push(thisPlayer.games[thisPlayer.games.length-count])
             count++
+            }
         }
         console.log(recentGamesArr)
     }
