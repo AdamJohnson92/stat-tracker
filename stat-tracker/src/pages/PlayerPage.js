@@ -18,7 +18,6 @@ const PlayerPage = () => {
 
     const params = useParams()
     const { playerId } = params
-    // const player = playerId;
 
     useEffect(() => {
         const fetchPlayer = async () => {
@@ -70,20 +69,15 @@ const PlayerPage = () => {
 
     //creating an arr of the most recent 10 games, unless there are fewer than 10 games. 
 
-    let recentGamesArr = []
+    let recentGamesArr;
     let count = 1;
 
     function addRecentGame() {
-
-        while (count < 11) {
-            if (count > thisPlayer.games.length) {
-                count = 11
-            } else {
-                recentGamesArr.push(thisPlayer.games[thisPlayer.games.length - count])
-                count++
-            }
+        if (thisPlayer.games.length < 10) {
+            recentGamesArr = thisPlayer.games
+        } else {
+            recentGamesArr = thisPlayer.games.slice(thisPlayer.games.length-10, thisPlayer.games.length).reverse()
         }
-        console.log(recentGamesArr)
         setRecentGames(recentGamesArr)
     }
 
@@ -139,7 +133,7 @@ const PlayerPage = () => {
                                 {recentGames.length === 0 ? <></> : 
                                 <div>
                                     <h3 className="margin">Recent Games</h3>
-                                    <table className="table padding-top margin table-border-radius" style={{ borderRadius: '30px', overflow: 'hidden' }}>
+                                    <table className="table padding-top margin table-border-radius" style={{ borderRadius: '10px', overflow: 'hidden' }}>
                                         <thead>
                                             <tr>
                                                 <th>Date</th>
